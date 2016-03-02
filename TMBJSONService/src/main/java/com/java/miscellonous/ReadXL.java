@@ -33,7 +33,7 @@ import java.util.List;
 		
 
 
-		    private static final String FILE_PATH = "C:\\Users\\elavarasan.natarajan\\Desktop\\BankIfscDetails.xlsx";
+		    private static final String FILE_PATH = "C:\\Users\\elavarasan.natarajan\\Desktop\\BankDetails.xlsx";
 
 		    static List<BankDetails> bankDetailsList = new ArrayList<BankDetails>();
 		    static BankDetails bankDetails;
@@ -65,10 +65,10 @@ import java.util.List;
 		           
 		                Sheet sheet = workbook.getSheetAt(0);
 		                Iterator<Row> rowIterator = sheet.iterator();
-		                int count =1;
+		                
 		                while (rowIterator.hasNext())
 		                {
-		               	
+		                	
 		                	bankDetails = new BankDetails();
 		                   
 		                	Row row = rowIterator.next();
@@ -94,31 +94,11 @@ import java.util.List;
 		                        	}
 		                        	else if(cell.getColumnIndex()==1)
 		                        	{
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setBankName(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setBankName(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
-		                        		
+		                        		bankDetails.setBankName(cell.getStringCellValue());
 		                        	}
 		                        	else if(cell.getColumnIndex()==2)
 		                        	{
-		                        		
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setiFSCCode(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setiFSCCode(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
-		                        		
-		                        		
+		                        		bankDetails.setiFSCCode(cell.getStringCellValue());
 		                        	}
 		                        	else if(cell.getColumnIndex()==3)
 		                        	{
@@ -135,31 +115,11 @@ import java.util.List;
 		                        	}
 		                        	else if(cell.getColumnIndex()==4)
 		                        	{
-		                        		
-		                        		
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setBranchName(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setBranchName(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
-		                        		
+		                        		bankDetails.setBranchName(cell.getStringCellValue());
 		                        	}
 		                        	else if(cell.getColumnIndex()==5)
 		                        	{
-		                        		
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setBranchAddress(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setBranchAddress(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
+		                        		bankDetails.setBranchAddress(cell.getStringCellValue());
 		                        	}
 		                        	else if(cell.getColumnIndex()==6)
 		                        	{
@@ -178,46 +138,15 @@ import java.util.List;
 		                        	}
 		                        	else if(cell.getColumnIndex()==7)
 		                        	{
-		                        		
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setCity(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setCity(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
-		                        
+		                        		bankDetails.setCity(cell.getStringCellValue());
 		                        	}
 		                        	else if(cell.getColumnIndex()==8)
 		                        	{
-		                        		
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setDistrict(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setDistrict(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
-		                        
-		                        		
+		                        		bankDetails.setDistrict(cell.getStringCellValue());
 		                        	}
 		                        	else if(cell.getColumnIndex()==9)
 		                        	{
-		                        		
-		                        		if(cell.getCellType()==Cell.CELL_TYPE_STRING)
-		                        		{
-		                        			bankDetails.setState(cell.getStringCellValue());
-		                        			
-		                        		}
-		                        		else if(cell.getCellType()==Cell.CELL_TYPE_NUMERIC)
-		                        		{
-		                        			bankDetails.setState(Integer.toString((int)cell.getNumericCellValue()));
-		                        		}
-		                        		
+		                        		bankDetails.setState(cell.getStringCellValue());
 		                        	}
 		                        	
 		                        	 	
@@ -227,8 +156,8 @@ import java.util.List;
 		            	
 		            		session.save(bankDetails);
 		            		
-		            		int c = count++;
-		            		System.out.println("Successfully saved"+"number of iterations"+c);
+		            		
+		            		System.out.println("Successfully saved");
 		                    
 		                   // bankDetailsList.add(bankDetails);
 		                    

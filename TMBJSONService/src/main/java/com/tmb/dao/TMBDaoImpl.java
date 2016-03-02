@@ -11,6 +11,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.tmb.enumeration.TransactionType;
 import com.tmb.model.AccountDetails;
 import com.tmb.model.AccountSummary;
 import com.tmb.model.BankDetails;
@@ -179,27 +180,23 @@ public class TMBDaoImpl implements TMBDao {
 		Criteria criteria = session.createCriteria(BankDetails.class);
 		if(iFSCCodeSearch.getBankName()!=null)
 		{
-			criteria.add(Restrictions.like("bankName",iFSCCodeSearch.getBankName(), MatchMode.ANYWHERE));
+			criteria.add(Restrictions.eq("bankName",iFSCCodeSearch.getBankName()));
 		}
 		if(iFSCCodeSearch.getiFSCCode()!=null)
 		{
 
 			if(iFSCCodeSearch.getiFSCCode().length()==11)
 			{
-				System.out.println("inside length 11 ##############################################");
 				criteria.add(Restrictions.eq("iFSCCode",iFSCCodeSearch.getiFSCCode()));
 			}
 			else if(iFSCCodeSearch.getiFSCCode().length()>0&&iFSCCodeSearch.getiFSCCode().length()<11)
 			{
-				System.out.println("inside length >0 <11 ##############################################");
-				
-					criteria.add(Restrictions.like("iFSCCode", iFSCCodeSearch.getiFSCCode(), MatchMode.ANYWHERE));	
-				
+				criteria.add(Restrictions.like("iFSCCode", iFSCCodeSearch.getiFSCCode(), MatchMode.ANYWHERE));
 			}
 		}
 		if(iFSCCodeSearch.getCity()!=null)
 		{
-			criteria.add(Restrictions.like("city",iFSCCodeSearch.getCity(), MatchMode.ANYWHERE));
+			criteria.add(Restrictions.eq("city",iFSCCodeSearch.getCity()));
 		}
 		
 		List list = criteria.list();
@@ -234,11 +231,12 @@ public class TMBDaoImpl implements TMBDao {
 	@Override
 	public boolean transferMoney(FundTransferInput fundTransferInput)
 			throws Exception {
-		
-		
 		session = sessionFactory.openSession();
         tx = session.beginTransaction();
         
+        if(fundTransferInput.getTransactionType()==TransactionType.NEFT)
+        {
+        	
         String hql = "UPDATE AccountDetails set balance = :balance "  + 
                 "WHERE accountNumber = :accountNumber";
        
@@ -246,15 +244,13 @@ public class TMBDaoImpl implements TMBDao {
    query.setParameter("balance", fundTransferInput.getAvailableAmount().subtract(fundTransferInput.getTransferAmount()));
    query.setParameter("accountNumber", fundTransferInput.getFromAccountNumber());
    int result = query.executeUpdate();
-   
-//   String hql2 = "from AccountDetails where category.name = 'Computer'";
-//   Query query2 = session.createQuery(hql2);
-//   query2.uniqueResult();
-//   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rows affected: " + result);
+   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rows affected: " + result);
    
         tx.commit();
         session.close();
-		return false;
+		
+        }
+        return false;
 	}
 
 //	public List<Book> getBookList() throws Exception{

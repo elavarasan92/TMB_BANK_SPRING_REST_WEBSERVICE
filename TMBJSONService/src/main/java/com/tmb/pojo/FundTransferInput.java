@@ -3,21 +3,18 @@ package com.tmb.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.tmb.enumeration.TransactionType;
+
 public class FundTransferInput {
 	
-	private String transferType;
+	private TransactionType transactionType;
 	private String fromAccountNumber;
 	private String toAccountNumber;
 	private BigDecimal availableAmount;
 	private BigDecimal transferAmount;
 	private Date paymentDate;
 	
-	public String getTransferType() {
-		return transferType;
-	}
-	public void setTransferType(String transferType) {
-		this.transferType = transferType;
-	}
+	
 	public String getFromAccountNumber() {
 		return fromAccountNumber;
 	}
@@ -47,6 +44,13 @@ public class FundTransferInput {
 	}
 	public void setPaymentDate(Date paymentDate) {
 		this.paymentDate = paymentDate;
+	}
+	
+	public TransactionType getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(TransactionType transactionType) {
+		this.transactionType = transactionType;
 	}
 	
 	

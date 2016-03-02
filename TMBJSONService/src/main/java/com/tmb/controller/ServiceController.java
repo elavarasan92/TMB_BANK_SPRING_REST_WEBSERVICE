@@ -1,9 +1,9 @@
 package com.tmb.controller;
 
-
+import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -252,24 +252,10 @@ public class ServiceController {
     Status transferMoney(@RequestBody FundTransferInput fundTransferInput){
         try{
         	tMBService.transferMoney(fundTransferInput);
-            return new Status(1,"Money transferred from the from account");
+            return new Status(1,"Money transferred to the payee account");
         } catch (Exception e) {
             return new Status(0, e.toString());
         }
     }
     
- 
-// @RequestMapping(value="/calculateemi", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-// public @ResponseBody
-// List<EMI>  getEMIPayments(@RequestBody EMIInput eMIInput){
-// 	List<EMI> emiList = null;
-//     try {
-//     	
-//    	 emiList = tMBService.getEMIPayments(eMIInput);
-//
-//     } catch (Exception e) {
-//         e.printStackTrace();
-//     }
-// return emiList;
-// }
 }
