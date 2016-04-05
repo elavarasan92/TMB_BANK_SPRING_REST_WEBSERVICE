@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.tmb.model.Festivals;
 import com.tmb.pojo.CurrentDate;
 
 public final class Utility {
@@ -13,23 +14,69 @@ public final class Utility {
 	private Utility()
 	{
 	}
-	public static CurrentDate getToday() throws ParseException
+	public static boolean allowNEFTTrans()
 	{
-		
-		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss EEEE dd/MM/yyyy W");
-		
-		   Calendar cal = Calendar.getInstance();
-		   String currentDateInString = dateFormat.format(cal.getTime());
-		   
-		   
-		   String [] dateArray = currentDateInString.split(" ");
-		   CurrentDate currentDate  = new CurrentDate(); 
-		   currentDate.setCurrentTime(dateArray[0]);
-		   currentDate.setCurrentDay(dateArray[1]);
-		   currentDate.setCurrentDate(dateFormat.parse(dateArray[2]));
-		   currentDate.setCurrentWeek(Integer.parseInt(dateArray[4]));
-		return currentDate;
-		
+	 //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    Calendar currentDay = Calendar.getInstance();
+	
+    
+    Calendar currentTime = Calendar.getInstance();
+	Calendar startTime = Calendar.getInstance();
+	startTime.set(Calendar.HOUR_OF_DAY,8);
+	startTime.set(Calendar.MINUTE,00);
+	
+	Calendar endTime = Calendar.getInstance();
+	endTime.set(Calendar.HOUR_OF_DAY,18);
+	endTime.set(Calendar.MINUTE,30);
+	
+	
+	
+	boolean result = false;
+    // if not suncurrentDay i.e, suncurrentDay =1 saturcurrentDay = 7
+	
+	
+	if(currentDay.get(Calendar.DAY_OF_WEEK)!=1)
+	{
+		if(currentDay.get(Calendar.DAY_OF_WEEK)==7)
+		{
+			
+			if((currentDay.get(Calendar.WEEK_OF_MONTH)==2)||(currentDay.get(Calendar.WEEK_OF_MONTH)==4))
+			{
+				System.out.println("its second or fourth saturday not working hours");
+			}
+			else
+			{
+			
+				if((currentTime.getTime().after(startTime.getTime()))&&(currentTime.getTime().before(endTime.getTime())))
+				{
+					System.out.println("working this is saturday hours");
+					result = true;
+				}
+				else
+				{
+					System.out.println("Not working hours this is saturday");
+				}
+			}
+		}
+		else
+		{
+			if((currentTime.getTime().after(startTime.getTime()))&&(currentTime.getTime().before(endTime.getTime())))
+			{
+				System.out.println("working hours not saturday");
+				result = true;
+			}
+			else
+			{
+				System.out.println("Not working hours not saturday");
+			}
+		}
 	}
+	else
+	{
+		System.out.println("this is sunday not working hours");
+	}
+	
+	return result;
+}
 
 }

@@ -251,8 +251,15 @@ public class ServiceController {
     public @ResponseBody
     Status transferMoney(@RequestBody FundTransferInput fundTransferInput){
         try{
-        	tMBService.transferMoney(fundTransferInput);
+        	if(tMBService.transferMoney(fundTransferInput))
+        	{
             return new Status(1,"Money transferred to the payee account");
+        	}
+        	else
+        	{
+        		return new Status(0, "money not transferred to the payee account");
+        	}
+        	
         } catch (Exception e) {
             return new Status(0, e.toString());
         }

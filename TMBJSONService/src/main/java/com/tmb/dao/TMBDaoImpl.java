@@ -11,19 +11,23 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import com.tmb.enumeration.TransactionType;
 import com.tmb.model.AccountDetails;
 import com.tmb.model.AccountSummary;
 import com.tmb.model.BankDetails;
 import com.tmb.model.Book;
+import com.tmb.model.Festivals;
 import com.tmb.model.FromAccountsList;
 import com.tmb.model.PayeeAccountDetails;
 import com.tmb.model.User;
 import com.tmb.pojo.FundTransferInput;
 import com.tmb.pojo.IFSCCodeSearch;
+import com.tmb.util.Utility;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -234,23 +238,61 @@ public class TMBDaoImpl implements TMBDao {
 		session = sessionFactory.openSession();
         tx = session.beginTransaction();
         
+        //Festivals festivals = new Festivals();
+        boolean result = false;
+       
+        
         if(fundTransferInput.getTransactionType()==TransactionType.NEFT)
         {
         	
-        String hql = "UPDATE AccountDetails set balance = :balance "  + 
-                "WHERE accountNumber = :accountNumber";
-       
-   Query query = session.createQuery(hql);
-   query.setParameter("balance", fundTransferInput.getAvailableAmount().subtract(fundTransferInput.getTransferAmount()));
-   query.setParameter("accountNumber", fundTransferInput.getFromAccountNumber());
-   int result = query.executeUpdate();
-   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rows affected: " + result);
-   
-        tx.commit();
-        session.close();
+        	 Calendar  calendar = Calendar.getInstance();
+//         	System.out.println(dateFormat.format(calendar.getTime()));
+         	Criteria cr = session.createCriteria(Festivals.class);
+         	cr.add(Restrictions.eq("dateOfFestival", calendar.getTime()));
+
+         	if(cr.uniqueResult()!=null)
+         	{
+         		System.out.println("this is a public holiday cannot do transaction @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+         	}
+         	else
+         	{
+         		System.out.println("this is a not  public holiday can do transaction @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+         		
+         		if(Utility.allowNEFTTrans())
+         		{
+         			try
+         			{
+         			
+         	        String hql = "UPDATE AccountDetails set balance = :balance "  + 
+         	                "WHERE accountNumber = :accountNumber";
+         	       
+         	   Query query = session.createQuery(hql);
+         	   query.setParameter("balance", fundTransferInput.getAvailableAmount().subtract(fundTransferInput.getTransferAmount()));
+         	   query.setParameter("accountNumber", fundTransferInput.getFromAccountNumber());
+         	   int rs = query.executeUpdate();
+         	   if(rs>0)
+         	   {
+         		  result = true;
+         	   }
+         	   
+         	   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rows affected: " + rs);
+         			}
+         			catch(Exception e)
+         			{
+         				e.printStackTrace();
+         			}
+         			finally
+         			{
+         	        tx.commit();
+         	        session.close();
+         			}
+         		}
+         	}
+        	
+
 		
         }
-        return false;
+        return result;
 	}
 
 //	public List<Book> getBookList() throws Exception{

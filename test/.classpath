@@ -5,5 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/elavarasan.natarajan/Downloads/dom4j.jar/dom4j.jar"/>
 	<classpathentry kind="lib" path="C:/Users/elavarasan.natarajan/Downloads/opencsv-3.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/elavarasan.natarajan/Desktop/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

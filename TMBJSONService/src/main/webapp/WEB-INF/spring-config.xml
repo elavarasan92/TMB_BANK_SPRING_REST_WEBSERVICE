@@ -30,6 +30,7 @@
                 <value>com.tmb.model.AccountDetails</value>
                 <value>com.tmb.model.PayeeAccountDetails</value>
                 <value>com.tmb.model.BankDetails</value>
+                <value>com.tmb.model.Festivals</value>
             </list>
         </property>
         <property name="hibernateProperties">

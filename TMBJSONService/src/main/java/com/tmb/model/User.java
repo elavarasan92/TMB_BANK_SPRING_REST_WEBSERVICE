@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.hibernate.annotations.Type;
 
 import com.tmb.enumeration.Education;
 import com.tmb.enumeration.Gender;
@@ -44,6 +45,7 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private MaritalStatus maritalStatus;
 	
+	@Type(type="date")
 	private Date dateOfBirth;
 	private String motherName;
 	private String fatherName;
