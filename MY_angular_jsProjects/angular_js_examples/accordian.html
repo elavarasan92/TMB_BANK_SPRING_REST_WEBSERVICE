@@ -1,0 +1,43 @@
+<html >
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script>
+	angular.module('acc-test', ['ui.bootstrap']);
+
+	</script>
+	<style>
+ div>.panel-default>.panel-heading {
+    background-color: #fae999;
+}
+	</style>
+  </head>
+<body ng-app="acc-test">
+
+  <accordion close-others="true">   
+    <accordion-group is-open="true">
+	<div>
+	
+        <accordion-heading  >
+		
+		     header1
+			
+        </accordion-heading> 
+	</div>	
+        <p >
+           <strong>This</strong> content is straight in the template, and is initially expanded.
+        </p>
+    </accordion-group> 
+    <accordion-group>
+      <accordion-heading>
+        header2
+       </accordion-heading>
+       <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lobortis ipsum, vel dictum diam. Cras consectetur lorem non laoreet gravida. Aenean magna magna, accumsan et urna at, pellentesque ultrices nisi. 
+      </p>   
+    </accordion-group>
+  </accordion>
+</div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+    <script>
+	var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+    $scope.name = "John Doe";
+
+    $scope.services = [
+    {ServiceName: 'Service1'},
+    {ServiceName: 'Service2'},
+    {ServiceName: 'Service3'}
+    ];
+    
+	
+	 $scope.dropdownData = {};
+        $scope.dropdownsubmitted = false;
+		
+		$scope.submitemicalculator = function() {
+
+		 if ($scope.dropdownData.frmdropdown.$invalid) {
+                $scope.dropdownsubmitted = true;
+            } else {
+			alert("selected");
+            }
+		}});
+	</script>
+    <style>
+	.error {
+  color: red;  
+}</style>
+
+  </head>
+  <body ng-app="myApp" >
+  <div ng-controller="myCtrl">
+  <form name="dropdownData.frmdropdown"  ng-submit="submitdropdown()">
+
+  
+  <input ng-model="dropdownData.loanamount"
+									   numbers-only="numbers-only"
+                                       id="loanamount"
+                                       name="loanamount"
+									   minlength="6"
+									   maxlength="10"
+                                       required />
+		<div class="padding-top-small ngMessagesClass" ng-messages="dropdownsubmitted == true && dropdownData.frmdropdown.loanamount.$error" role="alert">
+                <div class="ngMessageClass" ng-message="required">Please Enter Loan Amount</div>
+				<div class="ngMessageClass" ng-message="minlength">Please Enter amount greater than 100000.</div>
+        </div>
+  <hr>
+    <select name="service_id" class="Sitedropdown" style="width: 220px;" 
+            ng-model="Service" 
+            ng-options="service.ServiceName for service in services"
+            required> 
+      <option value="">Select Service</option> 
+    </select> 
+    <span class="error" ng-show="myForm.service_id.$invalid">Select service</span>
+	<input type="submit" id="submit"  value="Submit" />
+  <hr>
+  
+  
+  </form>
+
+		</div>
+  </body>
+</html>

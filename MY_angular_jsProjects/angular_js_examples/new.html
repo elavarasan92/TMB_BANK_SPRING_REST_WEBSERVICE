@@ -1,0 +1,29 @@
+var map_center = map.getCenter();
+reverseGeocode(map_center);
+
+
+function reverseGeocode(latlng){
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+            var level_1;
+            var level_2;
+            for (var x = 0, length_1 = results.length; x < length_1; x++){
+              for (var y = 0, length_2 = results[x].address_components.length; y < length_2; y++){
+                  var type = results[x].address_components[y].types[0];
+                    if ( type === "administrative_area_level_1") {
+                      level_1 = results[x].address_components[y].long_name;
+                      if (level_2) break;
+                    } else if (type === "locality"){
+                      level_2 = results[x].address_components[y].long_name;
+                      if (level_1) break;
+                    }
+                }
+            }
+            updateAddress(level_2, level_1);
+       } 
+  });
+}
+
+function updateAddress(city, prov){
+   // do what you want with the address here
+}

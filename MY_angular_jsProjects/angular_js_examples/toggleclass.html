@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="" ng-controller="myCtrl">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<style>
+.red {
+  color:red;
+}
+.bold {
+  font-weight:bold;
+}
+</style>
+<body ng-controller="myCtrl">
+
+<button ng-click="addClass()">
+  Add Red Class
+</button>
+
+<button ng-click="removeClass()">
+  Remove Red Class
+</button>
+
+<button ng-click="toggleClass()">
+  Toggle Red Class
+</button>
+
+<button ng-click="checkClass()">
+  Check Red Class
+</button>
+
+<div id="divID" ng-class="myClass">
+  This text color can be changed by class
+</div><br/>
+{{myClass}}
+<script>
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$rootScope) {
+    $scope.myClass = {red:false};
+    $scope.addClass = function() {
+       $scope.myClass.red = true;
+    }
+    $scope.removeClass = function() {
+       $scope.myClass.red = false;
+    }
+    $scope.checkClass = function() {
+      alert($scope.myClass.red);
+    }
+    $scope.toggleClass = function() {
+      $scope.myClass.red = !$scope.myClass.red;
+    };
+});
+
+</script>
+</body>
+</html>

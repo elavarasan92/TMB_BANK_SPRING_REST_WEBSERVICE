@@ -1,0 +1,841 @@
+
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+    <head id="ctl00_Head1"><meta name="GENERATOR" content="Microsoft SharePoint" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta Http-Equiv="Cache-Control" content="NO-CACHE" /><meta Http-Equiv="Pragma" content="NO-CACHE" /><meta http-equiv="Expires" content="0" /><meta name="msapplication-TileImage" content="/_layouts/15/images/SharePointMetroAppTile.png" /><meta name="msapplication-TileColor" content="#0072C6" /><title>
+	
+			HFC
+		
+</title><link rel="shortcut icon" href="/_layouts/15/images/ImagesNew/favicon.ico?rev=23" type="image/vnd.microsoft.icon" id="favicon" /><link id="CssRegistration1" rel="stylesheet" type="text/css" href="/_layouts/15/1033/styles/Themable/corev15.css?rev=ox%2BqLd6WTqhn6d%2FMqf2BMw%3D%3D"/>
+<link type="text/xml" rel="alternate" href="/_vti_bin/spsdisco.aspx" />
+            
+            <link rel="canonical" href="http://hfcsecuat.abfsg.com:80/Pages/Secured/AccountSettings.aspx" />
+            
+                
+        
+            <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/jquery.min.js"></script>
+            <script type="text/javascript" src="/_layouts/15/SharePointUI/JSNew/jquery-ui-1.9.js"></script>
+            
+            <script src="/_layouts/15/SharePointUI/JS/angular.min.js" type="text/javascript"></script>
+        
+        <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/bootstrap.min.js"></script>
+            <script src="/_layouts/15/SharePointUI/JS/angularjs-nvd3-directives.js"></script>
+
+         <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/local.js"></script>
+        <script src="/_layouts/15/SharePointUI/JS/ng-table.js"></script>
+        <script src="/_layouts/15/SharePointUI/JSNew/jquery.bxslider.js"></script>
+        
+        
+        <script src="/_layouts/15/SharePointUI/JS/moment.min.js"></script>
+        <script src="/_layouts/15/SharePointUI/JS/bootstrap-datepicker.js"></script>
+        <script src="/_layouts/15/SharePointUI/JS/calendar-control.js"></script>
+         
+       
+        
+      <script src="/_layouts/15/SharePointUI/JS/StickyHeader.js?rev=13-02-2015"></script>
+        <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/Common.js?rev=13-02-2015"></script>     
+       
+       
+        <script type="text/javascript" src="/_layouts/15/ABFL.CMG/JS/CMGlocal.js"></script>
+      
+        
+        <script type="text/javascript">
+            var str = "";
+            var myAppABFL = angular.module('myABFLApp', ['ngTable']);
+            myAppABFL.controller('MasterPageCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+            }]);
+            /* break us out of any containing iframes */
+            if (top != self) { top.location.replace(self.location.href); }
+        </script>
+        <script type="text/javascript">
+            /* Refresh form digest value */
+            try {
+                UpdateFormDigest(_spPageContextInfo.webServerRelativeUrl, _spFormDigestRefreshInterval);
+            }
+            catch (err) {
+            }
+
+            /* highlight top menu*/
+
+            $(document).ready(function () {
+                var url = location.href;
+                if (url.toLowerCase().indexOf('dashboard.aspx') != -1) {
+                    url = 'DashBoard.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (url.toLowerCase().indexOf('accountssummary.aspx') != -1) {
+                    url = 'AccountsSummary.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (url.toLowerCase().indexOf('accountdetails.aspx') != -1) {
+                    url = 'AccountsSummary.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+
+               
+
+                if (url.toLowerCase().indexOf('contactdetails.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('downloadforms.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('accountsettings.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('relationshipdetails.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('servicerequests.aspx') != -1) {
+                    url = 'ServiceRequests.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (url.toLowerCase().indexOf('statement.aspx') != -1) {
+                    url = 'Statement.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+
+                if (REQ_TYPE.toLowerCase() == 'service request') {
+                    url = 'ServiceRequests.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (REQ_TYPE.toLowerCase() == 'statements') {
+                    url = 'Statement.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+            });
+        </script>
+
+        <script type = "text/javascript" >
+
+            window.history.forward();
+            try {
+                history.pushState(null, null, location.href);
+                window.addEventListener('popstate', function (event) {
+                    history.pushState(null, null, location.href);
+                });
+            }
+            catch (err) {
+            }
+        </script>
+
+         <script type="text/javascript">
+
+             $(function () {
+                 $(document).bind('contextmenu', function (e) {
+                     e.preventDefault();
+                     alert("Due to security reasons right click is disabled.");
+                 });
+             });
+
+             function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+             $(document).on("keydown", disableF5);
+
+             function disableclick(event) {
+                 if (event.button == 2) {
+                     return false;
+                 }
+             }
+             document.onmousedown = disableclick;
+
+             var myAppABFL = angular.module('myABFLApp', ['nvd3ChartDirectives', 'ngTable']);
+
+             myAppABFL.controller('MasterPageCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+
+                 var siteURL = _spPageContextInfo.webServerRelativeUrl;
+                 if (siteURL == '/') {
+                     siteURL = '';
+                 }
+                 $scope.testdata = "TestData";
+
+                 //var url = siteURL + "/_api/web/lists/getByTitle('DashboardQuickLinks')/items?select=Title,URL,DisplayOrder,IsVisible";
+                 //$http({
+                 //    method: 'GET',
+                 //    url: url,
+                 //    headers: { ACCEPT: "application/json;odata=verbose" }
+                 //}).success(function (data, status) {
+                 //    $scope.result = data.d.results;
+                 //}).error(function (response) {
+                 //    alert("Error occured while getting data from service." + response);
+                 //});
+
+
+                 $scope.formatRuppe = function (inputValue) {
+                     if (inputValue != undefined) {
+                         inputValue = inputValue.toString();
+                         inputValue = inputValue.split('.');
+                         beforeDecimal = inputValue[0];
+                         afterDecimal = inputValue[1];
+                         inputValue = beforeDecimal.toString();
+                         var lastThree = inputValue.substring(inputValue.length - 3);
+                         var otherNumbers = inputValue.substring(0, inputValue.length - 3);
+                         if (otherNumbers != '')
+                             lastThree = ',' + lastThree;
+                         inputValue = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                         if (afterDecimal == undefined || afterDecimal == '00') {
+                           //  afterDecimal = '00';
+                             return inputValue
+                         }
+                         else {
+                             return inputValue + "." + afterDecimal;
+                         }
+
+                     }
+                     else
+                         return "";
+                 };
+
+                 $scope.addSpace = function (text) {
+                     var txt;
+                     if (text != undefined) {
+                         txt = text.replace(/[\r\n]/g, " ");
+                     }
+                     return txt;
+                 };
+             }]);
+
+             myAppABFL.directive('numbersOnly', function () {
+                 return {
+                     require: 'ngModel',
+                     link: function (scope, element, attrs, modelCtrl) {
+                         modelCtrl.$parsers.push(function (inputValue) {
+                             if (inputValue == undefined) return ''
+                             var transformedInput = inputValue.replace(/[^0-9]/g, '');
+                             if (transformedInput != inputValue) {
+                                 modelCtrl.$setViewValue(transformedInput);
+                                 modelCtrl.$render();
+                             }
+
+                             return transformedInput;
+                         });
+                     }
+                 };
+             });
+
+        </script>
+
+           
+        <link href="/_layouts/15/SharePointUI/CSS/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" /><link href="/_layouts/15/SharePointUI/CSS/CalendarControl.css" rel="stylesheet" type="text/css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSS/bootstrap.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSS/styles.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSSNew/newstyles.css?rev=10-15-2015" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSSNew/mediaqueries.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSS/jquery-ui.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSSNew/jquery.bxslider.css" /><meta http-equiv="Refresh" content="1200;url=/pages/secured/LogOut.aspx?sessionTimeOut" /></head>
+    <body>
+
+           <div data-ng-app="myABFLApp"  data-ng-controller="MasterPageCtrl" >
+        <div id="imgPrefetch" style="display:none">
+<img src="/_layouts/15/images/ImagesNew/favicon.ico?rev=23" />
+</div>
+
+        <noscript><div class='noindex'>You may be trying to access this site from a secured browser on the server. Please enable scripts and reload this page.</div></noscript>
+        
+        <form method="post" action="AccountSettings.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="_wpcmWpid" id="_wpcmWpid" value="" />
+<input type="hidden" name="wpcmVal" id="wpcmVal" value="" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="0xD5A321EC0B014581677DFD3763A78B8A99F10269765ECF30798EE6F56847DDB2AE41E7506B59FF82B82090AC8E116827B8AFC69D9B0EF5DC996A2BC09800AB6F,31 Mar 2016 07:50:41 -0000" />
+<input type="hidden" name="__ABFLRequestDigest" id="__ABFLRequestDigest" value="yVv9ba96q270W200/BHSoxstnCS3sRChmKrGm74ujdJDYsUhJPXA3pgL4VdO8IH3	3/31/2016 1:14:48 PM" />
+<input type="hidden" name="URLReferrer" id="URLReferrer" value="http://hfcsecuat.abfsg.com/pages/secured/dashboard.aspx" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_ExitingDesignMode" id="MSOSPWebPartManager_ExitingDesignMode" value="false" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="MSOSPWebPartManager_EndWebPartEditing" id="MSOSPWebPartManager_EndWebPartEditing" value="false" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPBSpWU0tleTpmZWVjODJmOS1mNzBmLTQ5YjEtODQ2My03ZmE0OGIzMGFiZDVk8Y/tSBDuEdQxJCwSCyidU4jqZ4ae5vy+MqAF8OZgWGM=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=torhnJgXVdGfO9zHYmeC9vYZu9jdJgEjlZaWC0oZF3BQc__Ge29ahUjIuC4Pe_6PHPZycZOKPOjAoMC8erJSy8hjXMvf-eR5W7ECFWFOhek1&amp;t=635145251460000000" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var MSOWebPartPageFormName = 'aspnetForm';
+var g_presenceEnabled = true;
+var g_wsaEnabled = false;
+var g_wsaQoSEnabled = false;
+var g_wsaQoSDataPoints = [];
+var g_wsaLCID = 1033;
+var g_wsaListTemplateId = 850;
+var g_wsaSiteTemplateId = 'BLANKINTERNET#0';
+var _fV4UI=true;var _spPageContextInfo = {webServerRelativeUrl: "\u002f", webAbsoluteUrl: "http:\u002f\u002fhfcsecuat.abfsg.com", siteAbsoluteUrl: "http:\u002f\u002fhfcsecuat.abfsg.com", serverRequestPath: "\u002fpages\u002fsecured\u002fAccountSettings.aspx", layoutsUrl: "_layouts\u002f15", webTitle: "HFC", webTemplate: "53", tenantAppVersion: "0", webLogoUrl: "_layouts\u002f15\u002fimages\u002fsiteicon.png", webLanguage: 1033, currentLanguage: 1033, currentUICultureName: "en-US", currentCultureName: "en-US", clientServerTimeDelta: new Date("2016-03-31T07:50:41.9526516Z") - new Date(), siteClientTag: "1$$15.0.4569.1000", crossDomainPhotosEnabled:false, webUIVersion:15, webPermMasks:{High:16,Low:196673},pageListId:"{48b8c4c3-b7c9-4751-b38e-9f21754bac31}",pageItemId:769, pagePersonalizationScope:1, alertsEnabled:false, siteServerRelativeUrl: "\u002f", allowSilverlightPrompt:'True'};//]]>
+</script>
+<script type="text/javascript" src="/_layouts/15/init.js?rev=%2FWTxr8UesytJ8GB%2F5hOwZA%3D%3D"></script>
+<script type="text/javascript">
+//<![CDATA[
+var REQ_TYPE = 'NONE' ;var PAGE_IDLE_TIMEOUT = 20;var L_Menu_BaseUrl="";
+var L_Menu_LCID="1033";
+var L_Menu_SiteTheme="null";
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=bX298pcEaRIptl1HVHvfwGIb3VmttOqIsww3bOScvUFR8mm5kODbzL0MuYdEnPZH4D0gimy5js_aA4mPPU6czfj8tMEyHgNisVaWj2Zrk0y3aEMr38aWrDJi8uRNqzu4kxtSzQeRh_ZBhY6xSwj_UDsoO3S-RQqlf3ISwT_Q1dcMESlEg-9auUR63od_XfdI0&amp;t=ca758f3" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=cZ1u2Of4GFQcEttwTogwUYySsVUGmfiNaljYAdR6abm9ReKRNjWoN2QipS8IttmqkoDLqw_W_8G0ECYqz2F35nVGjoSoYw86cybc97uwg8cWXeCsFFB1ojFBP51ERoO9pE48g8z7HaWjHqTPkTI0YnJUB6QjltFxRUg8aubCOAP2orD0rMsyMwvUO01bw2wo0&amp;t=ca758f3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+UpdateFormDigest('\u002f', 1440000);if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;};
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdACTzu6FjHQ+pD65crefSJpIn/Xv7/0eXbVIJNuaFaHOb4Y2XyNHWdR4Byxfe6OGyMU34/BARotTd3Ymjn4aSHcolm8XunIlcH++IFZu8rKnCMnG6kPFMVjQaaz81LkiJsEOW4DscTII9F4umh0zYE7JemjSRXLVC1S5fF5cguyQ3Qxbw17BiOXyyvRRqfY/6Jk5oGLIMpifXGG77urdD8pcq2GVltsZnAqh0Oi3vbMwuPa4TL0xLotQr3JVHfrkYCcskQQd6AkjVFZDlUuJ8AmrD66wwBI7LQiYlNPBWKVOGu6uXcHJTs1PmHGBTdkpYMjKeNcKZ/JIJ/Tblia1GSXSeArm6fSwQDJdDwCInEpupxMssDfUVWQQ+M3BlzslMj2eyCyWEUguaNdWCxyAW7NXxTIJ4Z+gd1eOoRnUwvrsZ/oV7F76g+bQJVJBpcRjU27IYdF4p/j/lu66RtrTQpOadkw2A3ou/h+/ALSg1cElRHHUf2pbIiMRon0m2nRZsJ8lYEj9qvUxOmBlV7oJd9GjqPjPlmePQEKWzYLYOPtE17bbSDedgeRy2LavAIe673kC90vB+W5PaSVmmw7feTJTr6HzN9eaGVNA0sSSxbTaJuliK1N1WJ4mT7wZ8Hs8nbbHq6PyupyoQh+mweMrkXQmDvUu5hIXAeeic+w0S3x4FiFrKflaIC0XvBw3XfYepX88pj6hO+aMY8E0lbqd1NzNY7xCq1wJ2vjwDi7osExCdXu+weEcSiA6sCYTj/3Ss+ARFjlk2J59S/mYsMhBHpzyFX2S9/ANNQ13h0gqMosdP0w==" />
+</div>
+            
+            <!--main container-->
+            <div class="container-fluid">
+            	<script type="text/javascript"> var submitHook = function () { return false; }; theForm._spOldSubmit = theForm.submit; theForm.submit = function () { if (!submitHook()) { this._spOldSubmit(); } }; </script>
+            	<span id="DeltaSPWebPartManager">
+            	    
+            	</span>
+            	<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm', ['fctl00$WebPartAdderUpdatePanel','','tctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$updPanel','','tctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$UpdatePanel1','','tctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$securityImagePanel',''], ['ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddlImageCategory',''], ['ctl00$WebPartAdder',''], 90, 'ctl00');
+//]]>
+</script>
+
+        
+	        <!--Top Header Bar--> 
+            <div class="page-header col-md-12 col-lg-12 col-sm-12">
+                
+                
+
+<div class="container">
+    <div class="right">
+        <ul id="ctl00_abgflNav_abgflNav_QuckLnk" class="masthead-nav"><li class="dropdown"><a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="quick-ico"></span>Quick Links<span class="caret"></span></a><ul id="QuckLnk" runat="server" role="menu" class="dropdown-menu"> <li><a target="_self" href=/Pages/Secured/AmortizationSchedule.aspx>Amortization Schedule</a> </li> <li><a target="_self" href=/Pages/Secured/Disbursement.aspx>Disbursement Request</a> </li> <li><a target="_self" href=/Pages/Secured/ApplyForLoan.aspx>Apply for New Loan</a> </li> <li><a target="_self" href=/Pages/Secured/CustomerApplicationStatus.aspx>Customer Application Status</a> </li></ul></li><li><a href="/pages/secured/emisimulator.aspx"><span class="EMI-ico"></span>EMI Calculator </a></li>            <li><a href="/pages/secured/ContactUs.aspx"><span class="contact-ico"></span>Contact Us </a></li>
+            <li><a href="/pages/secured/Logout.aspx"><span class="logout-ico"></span>Logout</a></li></ul>
+
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="user-info col-md-12 col-sm-12 dropdown">
+                <span style="color: #98022d" class="mobDispNon">Welcome,</span> <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle " href="#"><span class="userImg-thumb">
+                    <img id="ctl00_abgflNav_UserImg" src="/_layouts/15/SharePointUI/ImageHandler.ashx?Key=RORkAGk9O0f4WHBArtX7JmiAC6Xpz7t6WkwxaD21avw%3d" />
+                </span><span class="mobDispNon">
+                    hfc</span></a><a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="caret"></span> </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="/pages/secured/AccountSettings.aspx">My Profile</a></li>
+                    <li><a href="/pages/secured/PhotoUpload.aspx">Profile Picture</a></li>
+                </ul>
+                <br />
+                <span class="loginTm">
+                    Last Login: 31/3/2016  01:13:21 PM</span>
+            </div>
+        </div>
+    </div>
+    <div id="ctl00_abgflNav_navigationLogoId" class="col-md-4 col-lg-4 col-sm-3 col-xs-6 logo-img"><span class="col-xs-12 img-center"><a href="/Pages/Secured/Dashboard.aspx"><img src="/SiteCollectionImages/abfl_new_logo.jpg" /></a></span></div>
+</div>
+<!--<span class="mobQuicklinks"></span>-->
+
+<div class="col-md-12 col-sm-12 navigationMOb">
+    <!--Top nav Bar-->
+    <nav role="navigation" class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle collapsed" type="button" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div id="bs-example-navbar-collapse-1" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                
+                <ul id="ctl00_abgflNav_QuickLinks2_QuckLnkMobile" class="nav navbar-nav"><li class="active"><i class="overviewIco"></i><a href="/pages/secured/DashBoard.aspx">Overview</a></li><li><i class="summaryIco"></i><a href="/pages/secured/AccountsSummary.aspx">Account Summary</a></li><li><i class="requestIco"></i><a href="/pages/secured/ServiceRequests.aspx">Service Requests</a></li><li><i class="statementIco"></i><a href="/pages/secured/Statement.aspx">View Statements</a></li><li class="dropdown dispNon"><a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">Quick Links<span class="caret"></span></a><ul class="dropdown-menu" role="menu"> <li class="dispNon"><a target="_self" href=/Pages/Secured/AmortizationSchedule.aspx>Amortization Schedule</a> </li> <li class="dispNon"><a target="_self" href=/Pages/Secured/Disbursement.aspx>Disbursement Request</a> </li> <li class="dispNon"><a target="_self" href=/Pages/Secured/ApplyForLoan.aspx>Apply for New Loan</a> </li> <li class="dispNon"><a target="_self" href=/Pages/Secured/CustomerApplicationStatus.aspx>Customer Application Status</a> </li></ul></li><li class="quickLinksMob" style="display:none" ><a href="/pages/secured/emisimulator.aspx"><span class="EMI-ico"></span>EMI Calculator </a></li>
+ <li class="dispNon"><a href="/pages/secured/ContactUs.aspx">Contact Us </a></li>
+ <li class="dispNon"><a href="/pages/secured/Logout.aspx">Logout</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+            
+            </div>
+                </div>
+            
+            
+            <div id="s4-ribbonrow" style="display:none;">
+                <div id="globalNavBox" class="noindex">                  
+                    <div id="DeltaWebPartAdderUpdatePanelContainer" class="ms-core-webpartadder">
+	
+                        <div id="WebPartAdderUpdatePanelContainer">
+                            <div id="ctl00_WebPartAdderUpdatePanel">
+		
+									<span id="ctl00_WebPartAdder"></span>
+								
+	</div>
+                        </div>
+                    
+</div>
+                </div>
+            </div>
+            <div class="container">
+                       <div id="ctl00_Breadcrumb_breadCrumbId" class="breadcrumbs col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      
+    </div>
+
+                           
+       
+
+                         
+             
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 mainContent">
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+                        
+                            <div id="DeltaPlaceHolderMain">
+	
+                            <a id="mainContent" name="mainContent" tabindex="-1"></a>
+                            
+    <div class="topLeftContent">
+        <div class="ms-webpart-zone ms-fullWidth">
+		<div id="MSOZoneCell_WebPartctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65" class="s4-wpcell-plain ms-webpartzone-cell ms-webpart-cell-vertical ms-fullWidth ">
+			<div class="ms-webpart-chrome ms-webpart-chrome-vertical ms-webpart-chrome-fullWidth ">
+				<div WebPartID="1ce96c23-595d-4e07-868c-6a271883eb65" HasPers="false" id="WebPartctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65" width="100%" class="ms-WPBody noindex " allowDelete="false" allowExport="false" style="" ><div id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65">
+					
+
+
+<script src="/_layouts/15/SharePointUI/JS/AccountSettings.js?rev=12102015"></script>
+
+<script type="text/javascript">
+    _spOriginalFormAction = document.forms[0].action;
+    _spSuppressFormOnSubmitWrapper = true;
+</script>
+
+
+<div id="leftMainCol" class="col-lg-12 col-md-12 col-sm-12 col-xs12 AccountSetting">
+    <h1 class="pageTitle title">Account Settings</h1>
+    <div class="row col-md-12 col-sm-12 accountSetting">
+        <div class="row acc-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div>
+                <div id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_updPanel">
+						
+                        
+                    
+					</div>
+                <label id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblMessage" style="display: none"></label>
+            </div>
+            <div class="panel-group">
+                <div class="usernameSection col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="user-body">
+                        <div class="col-md-9 col-sm-11 col-xs-11 usernameBox">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding">Username:</label>
+                                <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtUserName" type="text" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtUserName" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12" disabled="disabled" value="hfcuser@1" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chngpwd-body" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default chngpwdSection chnagePassword col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel-heading accountSettingPanelHeading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="cl" id="lnkEdit" data-toggle="collapse" data-parent="#accordion" href="#pwdBoxes" aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="" aria-hidden="true"></span>Change Password
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="pwdBoxes" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body chngpwd-body">
+                                <div class="col-md-9 col-sm-11 col-xs-11">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblerrorMessage" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 passworderrormsg"></span>
+                                        <label class="col-lg-5 col-md-6 col-sm-5 col-xs-9 body-padding">Old Password:</label>
+                                        <div class="oldPasswordErrorMsg col-md-6 col-sm-5 col-xs-12 body-padding">
+                                            <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtOldPswd" type="password" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtOldPswd" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" />
+                                            <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblerrorMessageOldPassword" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 passworderrormsg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="col-lg-5 col-md-6 col-sm-5 col-xs-9 body-padding">New Password:</label>
+                                        <div class="oldPasswordErrorMsg col-md-6 col-sm-5 col-xs-12 body-padding">
+                                            <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtNewPswd" type="password" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtNewPswd" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" />
+                                            <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblerrorMessageNewPassword" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 passworderrormsg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="col-lg-5 col-md-6 col-sm-5 col-xs-9 body-padding">Confirm New Password:</label>
+                                        <div class="oldPasswordErrorMsg col-md-6 col-sm-5 col-xs-12 body-padding">
+                                            <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtCnfmPswd" type="password" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtCnfmPswd" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" />
+                                            <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblerrorMessageConfirmNewPassword" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 passworderrormsg"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row submit-bg col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-div">
+                                        <div class="col-lg-5 col-md-6 col-sm-5 col-xs-12 body-padding"></div>
+                                        <input type="submit" name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$btnUpdatePswd" value="Submit" onclick="return submitPassword();" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_btnUpdatePswd" class=" btn btn-default btn-media submitBtn btn_behaviour mar-lt0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default securityqsSection col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel-heading accountSettingPanelHeading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="cl collapsed" id="lnkEditSecQuestion" data-toggle="collapse" data-parent="#accordion" href="#qaDiv" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span class="" aria-hidden="true"></span>Change Security Question and Answer
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="qaDiv" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body securityqs-body">
+                                <span id="AjaxDelta1">
+                                    <div id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_UpdatePanel1">
+						
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <a id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_qaEdit" class="editSecurityQue" href="javascript:__doPostBack(&#39;ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$qaEdit&#39;,&#39;&#39;)" style="float: right; padding-right: 20px; padding-left: 10px"><span class="editlink"></span>Edit</a>
+                                                <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_securityQA" class="securityQandA no-display">Please answer all questions and click on Submit</span>
+                                            </div>
+                                            <div id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_securityQuestionDiv" class="col-md-9 col-sm-11 col-xs-11">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding">Question 1:</label>
+                                                    <select name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddnSecQuestion" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddnSecQuestion\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_ddnSecQuestion" disabled="disabled" class="aspNetDisabled text-box col-md-6 col-sm-5 col-xs-12 body-padding contentWidth">
+							<option selected="selected" value="What was the name of your elementary / primary school">What was the name of your elementary / primary school</option>
+							<option value="In what city or town does your nearest sibling live">In what city or town does your nearest sibling live</option>
+							<option value="What was your favorite place to visit as a child">What was your favorite place to visit as a child</option>
+							<option value="What was the brand of your first vehicle?">What was the brand of your first vehicle?</option>
+							<option value="What is your mother&#39;s maiden name?">What is your mother&#39;s maiden name?</option>
+
+						</select>
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11"></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblSecQuestion1error" class="col-md-6 col-sm-5 col-xs-12 error_sign_name"></span></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding"><span class="mandate">*</span>Answer 1:</label>
+                                                    <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtSecAnswer" type="password" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtSecAnswer" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" disabled="disabled" value="pp9oh8K0oBvysi5uTjyGAA==" />
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11"></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblSecAnswer1error" class="col-md-6 col-sm-5 col-xs-12 error_sign_name"></span></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding">Question 2:</label>
+                                                    <select name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddnSecQuestion2" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddnSecQuestion2\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_ddnSecQuestion2" disabled="disabled" class="aspNetDisabled text-box col-md-6 col-sm-5 col-xs-12 body-padding contentWidth">
+							<option value="What was the name of your elementary / primary school">What was the name of your elementary / primary school</option>
+							<option selected="selected" value="In what city or town does your nearest sibling live">In what city or town does your nearest sibling live</option>
+							<option value="What was your favorite place to visit as a child">What was your favorite place to visit as a child</option>
+							<option value="What was the brand of your first vehicle?">What was the brand of your first vehicle?</option>
+							<option value="What is your mother&#39;s maiden name?">What is your mother&#39;s maiden name?</option>
+
+						</select>
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11"></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblSecQuestion2error" class="col-md-6 col-sm-5 col-xs-12 error_sign_name"></span></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding"><span class="mandate">*</span>Answer 2:</label>
+                                                    <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtSecAnswer2" type="password" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtSecAnswer2" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" disabled="disabled" value="pp9oh8K0oBvysi5uTjyGAA==" />
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11 "></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblSecAnswer2error" class="col-md-6 col-sm-5 col-xs-12 error_sign_name"></span></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding">Question 3:</label>
+                                                    <select name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddnSecQuestion3" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_ddnSecQuestion3" disabled="disabled" class="aspNetDisabled text-box col-md-6 col-sm-5 col-xs-12 body-padding contentWidth">
+							<option value="What was the name of your elementary / primary school">What was the name of your elementary / primary school</option>
+							<option value="In what city or town does your nearest sibling live">In what city or town does your nearest sibling live</option>
+							<option selected="selected" value="What was your favorite place to visit as a child">What was your favorite place to visit as a child</option>
+							<option value="What was the brand of your first vehicle?">What was the brand of your first vehicle?</option>
+							<option value="What is your mother&#39;s maiden name?">What is your mother&#39;s maiden name?</option>
+
+						</select>
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11"></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblSecQuestion3error" class="col-md-6 col-sm-5 col-xs-12 error_sign_name"></span></span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding"><span class="mandate">*</span>Answer 3:</label>
+                                                    <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtSecAnswer3" type="password" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtSecAnswer3" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" disabled="disabled" value="pp9oh8K0oBvysi5uTjyGAA==" />
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11"></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblSecAnswer3error" class="col-md-6 col-sm-5 col-xs-12 error_sign_name"></span></span>
+                                                </div>
+                                                <div class="row submit-bg col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-div">
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11 body-padding"></div>
+                                                    <input type="submit" name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$btnUpdateAnswer" value="Submit" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_btnUpdateAnswer" disabled="disabled" class="aspNetDisabled   btn btn-default btn-media submitBtn btn_behaviour mar-lt0" />
+                                                    <a id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_CancelLink" class="aspNetDisabled editSecurityQue" style="padding-right: 20px; padding-left: 10px; color: #e3e3e3"><span class="editlink" ></span>Cancel</a>
+                                                </div>
+                                            </div>
+                                        
+					</div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default chngpwdSection col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel-heading accountSettingPanelHeading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed cl" id="lnkEditImage" data-toggle="collapse" data-parent="#accordion" href="#svDiv" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="" aria-hidden="true"></span>Update Security Verification Image and Text
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="svDiv" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body chngpwd-body">
+                                <div class="col-md-9 col-sm-11 col-xs-11">
+
+                                    <span id="customUpdate">
+                                        <div id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_securityImagePanel">
+						
+                                                <div id="secImage">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-12 body-padding">Security Verification Image:</label>
+                                                    <img src="/SecurityImages/Aim to Suceed 60x60.jpg" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_imgSiteVerification" class="img_capche" />
+                                                </div>
+                                                <div id="secImagesList" class="img_selction_section col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-9 body-padding">Select Image Category:</label>
+                                                    <select name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddlImageCategory" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$ddlImageCategory\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_ddlImageCategory" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding">
+							<option selected="selected" value="-1">--Select Image Category--</option>
+							<option value="Home">Home</option>
+							<option value="Life">Life</option>
+
+						</select>
+
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 "></div>
+                                                    <div class="img_selection_box col-lg-6 col-md-6 col-sm-8 col-xs-12">
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 img_sel pull-left">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="col-lg-5 col-md-6 col-sm-5 col-xs-9 body-padding">Security Verification Text:</label>
+
+                                                    <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtSiteVerificationText" type="text" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtSiteVerificationText" autocomplete="off" class="text-box col-md-6 col-sm-5 col-xs-12 body-padding" maxlength="30" value="hfc@2016" />
+                                                    <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11 "></div>
+                                                    <span>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_msgSiteVerificationText" class="col-md-6 col-sm-5 col-xs-12">Max. 30 characters are allowed</span>
+                                                        <div class="col-lg-5 col-md-6 col-sm-5 col-xs-11 "></div>
+                                                        <span id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_lblVerificationTextError" class="col-md-6 col-sm-5 col-xs-12" style="color: red"></span>
+                                                    </span>
+                                                </div>
+                                            
+					</div>
+                                    </span>
+                                    <div class="row submit-bg col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-div">
+                                        <div class="col-lg-5 col-md-6 col-sm-5 col-xs-12 body-padding"></div>
+                                        <input type="submit" name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$btnSVUpdate" value="Submit" onclick="return submitImage();" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_btnSVUpdate" class=" btn btn-default btn-media submitBtn btn_behaviour mar-lt0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default chngpwdSection changeContact col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel-heading accountSettingPanelHeading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="cl collapsed" id="lnkEditContact" data-toggle="collapse" data-parent="#accordion" href="#contactDtls" aria-expanded="false" aria-controls="collapseFour">
+                                    <span class="" aria-hidden="true"></span>Contact Details
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="contactDtls" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body chngpwd-body">
+
+                                <div class="col-md-9 col-sm-11 col-xs-11">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="col-lg-4 col-md-4 col-sm-4 col-xs-5 body-padding">Mobile Number:</label>
+                                        <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12 body-padding">
+                                            <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtMobile" type="text" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtMobile" autocomplete="off" class="text-box" disabled="disabled" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-11 col-xs-11">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="col-lg-4 col-md-4 col-sm-4 col-xs-5 body-padding">Email:</label>
+                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 body-padding">
+                                            <input name="ctl00$SPWebPartManager1$g_1ce96c23_595d_4e07_868c_6a271883eb65$txtEmail" type="text" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_txtEmail" autocomplete="off" class="text-box " disabled="disabled" value="kedar.deshpande-v@adityabirla.com" />
+                                         <a href="/Pages/Secured/UpdateEmail.aspx" id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_EditEmailLink" style="display:inline-block;" class="mar10">Edit</a>
+                                              <div id="ctl00_SPWebPartManager1_g_1ce96c23_595d_4e07_868c_6a271883eb65_EditEmail" style="display:none"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+				</div><div class="ms-clear"></div></div>
+			</div>
+		</div>
+	</div>
+    </div>
+<div style='display:none' id='hidZone'><menu class="ms-hide">
+		<ie:menuitem id="MSOMenu_Help" iconsrc="/_layouts/15/images/HelpIcon.gif" onmenuclick="MSOWebPartPage_SetNewWindowLocation(MenuWebPart.getAttribute('helpLink'), MenuWebPart.getAttribute('helpMode'))" text="Help" type="option" style="display:none">
+
+		</ie:menuitem>
+	</menu></div>
+                        
+</div>
+                          </div>
+                         </div>
+                     </div>
+                    				    
+              
+                       
+           
+            <div style="display:none">
+            			
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+            </div>
+
+            
+            </div>
+            <footer class="col-md-12 col-sm-12 col-xs-12 footer"> 
+              <div id="ctl00_FOOTER_abflFooter" class="container-fluid footer-sec"><div class="col-md-6 col-lg-6 col-sm-6 col-xs-7 center">
+        <address>
+        Phone: +91 84259 55555  |  Email: abhfl.customerservice@adityabirla.com
+        </address>
+        <p class="copyright">© Aditya Birla Housing Finance Ltd.  2015</p>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-5">
+        <ul class="footerLinks">
+		<li><a href="http://hfcsecuat.abfsg.com/Documents/HFC%20Connect%20TnCs.pdf" target="_blank">Terms and Conditions</a></li>
+<li><a href="http://hfcsecuat.abfsg.com/Documents/Legal%20Information%20for%20HFC%20customer%20portal.pdf" target="_blank">Legal</a></li>
+          <li><a href="http://adityabirlahomeloans.com/Pages/Individual/Our-Solutions/HomeLoan.aspx" target="_blank">Our Solutions </a></li>
+          <li><a href="http://adityabirlahomeloans.com/Pages/Home.aspx" target="_blank">Branch Locator </a></li>
+          <li><a href="mailto:abhfl.customerservice@adityabirla.com">Feedback</a></li>          
+        </ul>
+        <ul class="networking">
+          <li class="facebook"><a target="_blank" href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Fs%3D100%26p%255Burl%255D%3Dhttp%253A%252F%252Fadityabirlafinance.com%252FPages%252FHome.aspx%26p%255Bimages%255D%255B0%255D%3Dhttp%253A%252F%252Fadityabirlafinance.com%252FSiteCollectionImages%252FAditya_Birla_Finance.jpg%26ret%3Dlogin&display=popup"></a></li>
+          <li class="tweet"><a target="_blank" href="https://twitter.com/intent/tweet?text=Aditya%20Birla%20Finance%20-%20Our%20Business%20is%20to%20Finance%20Yours&url=http%3A%2F%2Fadityabirlafinance.com%2FPages%2FHome.aspx"></a></li>
+          <li class="linked"><a target="_blank" href="https://www.linkedin.com/shareArticle?title=Aditya+Birla+Finance+-+Our+Business+is+to+Finance+Yours&mini=true&url=http%3A%2F%2Fadityabirlafinance%2Ecom%2FPages%2FHome%2Easpx"></a></li>
+        </ul>
+      </div>
+    </div></div>
+
+     
+	</footer>
+    
+        
+<script type="text/javascript">RegisterSod("initstrings.js", "\u002f_layouts\u002f15\u002f1033\u002finitstrings.js?rev=4Yrxyggg5knao3D48Ii\u00252FWA\u00253D\u00253D");</script>
+<script type="text/javascript">
+//<![CDATA[
+var _spFormDigestRefreshInterval = 1440000;var _fV4UI = true;//]]>
+</script>
+<script type="text/javascript">RegisterSod("browserScript", "\u002f_layouts\u002f15\u002fie55up.js?rev=0R4dbpInVlmjoVSw2Gglmw\u00253D\u00253D");RegisterSodDep("browserScript", "strings.js");</script>
+<script type="text/javascript">
+//<![CDATA[
+var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';//]]>
+</script>
+<script type="text/javascript">RegisterSod("WPAdderClass", "\u002f_layouts\u002f15\u002fwpadder.js?rev=ApLnd\u00252BqIPjLXRfr1t\u00252BCxyQ\u00253D\u00253D");</script>
+<script type="text/javascript">
+//<![CDATA[
+var g_clientIdDeltaPlaceHolderMain = "DeltaPlaceHolderMain";
+var g_clientIdDeltaPlaceHolderUtilityContent = "DeltaPlaceHolderUtilityContent";
+//]]>
+</script>
+</form>
+                       </div>
+        <span id="DeltaPlaceHolderUtilityContent">
+            
+        </span>
+        <script type="text/javascript">// <![CDATA[ 
+
+
+            var g_Workspace = "s4-workspace";
+        // ]]>
+</script>
+
+               <script type="text/javascript">
+                   $(document).ready(function () {
+                       function add() {
+                           if ($(this).val() === '') {
+                               $(this).val($(this).attr('placeholder')).addClass('placeholder');
+                           }
+                       }
+
+                       function remove() {
+                           if ($(this).val() === $(this).attr('placeholder')) {
+                               $(this).val('').removeClass('placeholder');
+                           }
+                       }
+
+                       // Create a dummy element for feature detection
+                       if (!('placeholder' in $('<input>')[0])) {
+
+                           // Select the elements that have a placeholder attribute
+                           $('input[placeholder], textarea[placeholder]').blur(add).focus(remove).each(add);
+
+                           // Remove the placeholder text before the form is submitted
+                           $('form').submit(function () {
+                               $(this).find('input[placeholder], textarea[placeholder]').each(remove);
+                           });
+                       }
+                   });
+
+		</script>
+
+
+    </body>
+</html>

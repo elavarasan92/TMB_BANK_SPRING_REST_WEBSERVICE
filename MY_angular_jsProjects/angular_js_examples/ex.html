@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+	.error {
+  color: red;  
+}
+
+/* Error Messages */
+
+.ngMessagesClass {} .ngMessagesClass.ng-active-add {
+    transition: 0.3s linear all;
+}
+.ngMessagesClass.ng-active {} .ngMessagesClass.ng-inactive-add {
+    transition: 0.3s linear all;
+}
+.ngMessagesClass.ng-inactive {} .ngMessageClass {
+    color: red;
+    font-style: italic;
+}
+.ngMessageClass.ng-enter {
+    transition: 0.3s linear all;
+}
+.ngMessageClass.ng-enter-active {} .ngMessageClass.ng-leave {
+    transition: 0.3s linear all;
+}
+.ngMessageClass.ng-leave-active {}
+
+</style>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+ <form name="dropdownData.frmdropdown"  ng-submit="submitdropdown()">
+  <hr>
+    <select name="service"  id="service"  style="width: 220px;" 
+            ng-model="dropdownData.service" 
+            ng-options="service.ServiceName for service in services"
+            required> 
+      <option value="">Select Service</option> 
+    </select> 
+	<div class="ngMessagesClass" ng-messages="dropdownsubmitted == true && dropdownData.frmdropdown.service.$error" role="alert">
+                <div class="ngMessageClass" ng-message="required">Please select an item</div>
+        </div>
+	<input type="submit" id="submit"  value="Submit" />
+  <hr>
+  
+  
+  </form>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+   
+	
+	  $scope.services = [
+    {ServiceName: 'Service1'},
+    {ServiceName: 'Service2'},
+    {ServiceName: 'Service3'}
+    ];
+    
+	
+	 $scope.dropdownData = {};
+        $scope.dropdownsubmitted = false;
+
+		$scope.submitdropdown = function() {
+
+		 if ($scope.dropdownData.frmdropdown.$invalid) {
+                $scope.dropdownsubmitted = true;
+            } else {
+			alert("selected");
+            }
+		}
+});
+</script>
+</body>
+</html>

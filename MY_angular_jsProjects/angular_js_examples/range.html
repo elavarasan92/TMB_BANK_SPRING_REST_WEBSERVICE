@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
+	</head>
+<body>
+	<form name="emiData">
+		<input type="range" ng-model="range1" name="amountRange" min="6" max="360" value="6" oninput="emiData.amountInput.value=this.value" />
+		<input type="number" ng-model="input1" name="amountInput" min="6" max="360" value="6" oninput="emiData.amountRange.value=this.value" />
+	</form>
+</body>
+</html>

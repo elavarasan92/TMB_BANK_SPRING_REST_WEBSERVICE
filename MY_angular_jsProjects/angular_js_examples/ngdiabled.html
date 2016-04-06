@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="edit_model=true">
+
+<button ng-disabled="edit_model">Click Me!</button>
+
+
+<input type="checkbox" ng-model="edit_model"/>Button
+
+<a href="#" ng-click="action()" ng-model="edit_model">Edit</a>
+
+</p>
+</div> 
+<script>
+
+var MyApp = angular.module("MyApp", []);
+
+MyApp.controller("MyController", function ($scope) {
+$scope.action = function(){
+$scope.edit_model="false";
+}
+
+});
+</script>
+</body>
+</html>

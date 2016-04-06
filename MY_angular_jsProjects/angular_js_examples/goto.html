@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+
+<a href="" ng-click="gotoPage()">Add Item</a>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$rootScope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+    $rootScope.gotoPage = function()
+{
+try {
+            $state.go("C:\Users\elavarasan.natarajan\Desktop\mutuallly_exclusive_dropdown.html");
+        } catch (e) {
+           alert("inside catch");
+        }
+}
+});
+</script>
+
+</body>
+</html>

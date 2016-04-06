@@ -1,0 +1,41 @@
+<!DOCTYPE html>  
+<html>    
+<head>  
+<script SRC="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js">    
+</script>    
+    
+</head>    
+<body>
+    <div ng-controller='foo'>
+        <input type="range" ng-model='modelValue' min="60" max="150" step="1"/>
+        <img ng-src="{{image.image}}" alt="Description" ng-click="imagechange()" ng-model="images1"/>
+        <div> $scope.modelValue: {{modelValue}} </div>
+        <div> input's actual value: {{inputValue}}</div>
+    </div>
+<script>
+
+    var module = angular.module('test', []);
+    
+    module.controller("foo", function($scope, $rootScope, $element, $interval) {
+        
+        $scope.modelValue = "";
+		$scope.image={"image":"E:/abhl_image/expand.png"}
+		
+		$scope.imagechange=function()
+		{
+		if(img){$scope.image={"image":"E:/abhl_image/collaps-sign.png"};}
+		else{$scope.image={"image":"E:/abhl_image/expand.png"};}
+		
+		}
+        
+        $interval(function() {
+            $scope.inputValue = $element.find('input').val();
+        }, 250);
+    });
+    
+    angular.bootstrap(document.querySelector('body'), ['test']);
+
+
+</script>
+</body>    
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>  
+<html ng-app="">    
+<head>  <!-- www.techstrikers.com -->  
+<title>My first AngularJS code</title>    
+<script SRC="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js">    
+</script>    
+    
+</head>    
+<body bgcolor="#bnde45">  
+<fieldset>  
+<legend>AngularJS Foreach Function</legend>  
+<script>       
+  
+var values = [{name: 'Jimi', gender: 'male'},{name: 'Peter', gender: 'male'},{name: 'Bob', gender: 'male'},{name:'Elavarasan', gender:'male'},{name:'Indhu', gender:'female'}];
+angular.forEach(values, function(value, key) {
+  document.write(value.name);
+   document.write("</br>");
+  document.write(value.gender);
+  document.write("</br>");
+});
+</script>  
+</fieldset>  
+</body>    
+</html>

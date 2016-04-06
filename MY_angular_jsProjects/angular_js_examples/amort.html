@@ -1,0 +1,787 @@
+
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+    <head id="ctl00_Head1"><meta name="GENERATOR" content="Microsoft SharePoint" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta Http-Equiv="Cache-Control" content="NO-CACHE" /><meta Http-Equiv="Pragma" content="NO-CACHE" /><meta http-equiv="Expires" content="0" /><meta name="msapplication-TileImage" content="/_layouts/15/images/SharePointMetroAppTile.png" /><meta name="msapplication-TileColor" content="#0072C6" /><title>
+	
+			HFC
+		
+</title><link rel="shortcut icon" href="/_layouts/15/images/ImagesNew/favicon.ico?rev=23" type="image/vnd.microsoft.icon" id="favicon" /><link id="CssRegistration1" rel="stylesheet" type="text/css" href="/_layouts/15/1033/styles/Themable/corev15.css?rev=ox%2BqLd6WTqhn6d%2FMqf2BMw%3D%3D"/>
+<link type="text/xml" rel="alternate" href="/_vti_bin/spsdisco.aspx" />
+            
+            <link rel="canonical" href="http://hfcsecuat.abfsg.com:80/Pages/Secured/AmortizationSchedule.aspx" />
+            
+                
+        
+            <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/jquery.min.js"></script>
+            <script type="text/javascript" src="/_layouts/15/SharePointUI/JSNew/jquery-ui-1.9.js"></script>
+            
+            <script src="/_layouts/15/SharePointUI/JS/angular.min.js" type="text/javascript"></script>
+        
+        <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/bootstrap.min.js"></script>
+            <script src="/_layouts/15/SharePointUI/JS/angularjs-nvd3-directives.js"></script>
+
+         <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/local.js"></script>
+        <script src="/_layouts/15/SharePointUI/JS/ng-table.js"></script>
+        <script src="/_layouts/15/SharePointUI/JSNew/jquery.bxslider.js"></script>
+        
+        
+        <script src="/_layouts/15/SharePointUI/JS/moment.min.js"></script>
+        <script src="/_layouts/15/SharePointUI/JS/bootstrap-datepicker.js"></script>
+        <script src="/_layouts/15/SharePointUI/JS/calendar-control.js"></script>
+         
+       
+        
+      <script src="/_layouts/15/SharePointUI/JS/StickyHeader.js?rev=13-02-2015"></script>
+        <script type="text/javascript" src="/_layouts/15/SharePointUI/JS/Common.js?rev=13-02-2015"></script>     
+       
+       
+        <script type="text/javascript" src="/_layouts/15/ABFL.CMG/JS/CMGlocal.js"></script>
+      
+        
+        <script type="text/javascript">
+            var str = "";
+            var myAppABFL = angular.module('myABFLApp', ['ngTable']);
+            myAppABFL.controller('MasterPageCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+            }]);
+            /* break us out of any containing iframes */
+            if (top != self) { top.location.replace(self.location.href); }
+        </script>
+        <script type="text/javascript">
+            /* Refresh form digest value */
+            try {
+                UpdateFormDigest(_spPageContextInfo.webServerRelativeUrl, _spFormDigestRefreshInterval);
+            }
+            catch (err) {
+            }
+
+            /* highlight top menu*/
+
+            $(document).ready(function () {
+                var url = location.href;
+                if (url.toLowerCase().indexOf('dashboard.aspx') != -1) {
+                    url = 'DashBoard.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (url.toLowerCase().indexOf('accountssummary.aspx') != -1) {
+                    url = 'AccountsSummary.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (url.toLowerCase().indexOf('accountdetails.aspx') != -1) {
+                    url = 'AccountsSummary.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+
+               
+
+                if (url.toLowerCase().indexOf('contactdetails.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('downloadforms.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('accountsettings.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('relationshipdetails.aspx') != -1) {
+                    $('.navbar-nav li.active').removeClass('active');
+                    $('.dropdown').addClass('active');
+                }
+
+                if (url.toLowerCase().indexOf('servicerequests.aspx') != -1) {
+                    url = 'ServiceRequests.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (url.toLowerCase().indexOf('statement.aspx') != -1) {
+                    url = 'Statement.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+
+                if (REQ_TYPE.toLowerCase() == 'service request') {
+                    url = 'ServiceRequests.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+                if (REQ_TYPE.toLowerCase() == 'statements') {
+                    url = 'Statement.aspx';
+                    $('.navbar-nav li.active').removeClass('active');//remove current active navigation
+                    $("a[href$='/" + url + "']").addClass('active'); //add active to current page
+                }
+
+            });
+        </script>
+
+        <script type = "text/javascript" >
+
+            window.history.forward();
+            try {
+                history.pushState(null, null, location.href);
+                window.addEventListener('popstate', function (event) {
+                    history.pushState(null, null, location.href);
+                });
+            }
+            catch (err) {
+            }
+        </script>
+
+         <script type="text/javascript">
+
+             $(function () {
+                 $(document).bind('contextmenu', function (e) {
+                     e.preventDefault();
+                     alert("Due to security reasons right click is disabled.");
+                 });
+             });
+
+             function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+             $(document).on("keydown", disableF5);
+
+             function disableclick(event) {
+                 if (event.button == 2) {
+                     return false;
+                 }
+             }
+             document.onmousedown = disableclick;
+
+             var myAppABFL = angular.module('myABFLApp', ['nvd3ChartDirectives', 'ngTable']);
+
+             myAppABFL.controller('MasterPageCtrl', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+
+                 var siteURL = _spPageContextInfo.webServerRelativeUrl;
+                 if (siteURL == '/') {
+                     siteURL = '';
+                 }
+                 $scope.testdata = "TestData";
+
+                 //var url = siteURL + "/_api/web/lists/getByTitle('DashboardQuickLinks')/items?select=Title,URL,DisplayOrder,IsVisible";
+                 //$http({
+                 //    method: 'GET',
+                 //    url: url,
+                 //    headers: { ACCEPT: "application/json;odata=verbose" }
+                 //}).success(function (data, status) {
+                 //    $scope.result = data.d.results;
+                 //}).error(function (response) {
+                 //    alert("Error occured while getting data from service." + response);
+                 //});
+
+
+                 $scope.formatRuppe = function (inputValue) {
+                     if (inputValue != undefined) {
+                         inputValue = inputValue.toString();
+                         inputValue = inputValue.split('.');
+                         beforeDecimal = inputValue[0];
+                         afterDecimal = inputValue[1];
+                         inputValue = beforeDecimal.toString();
+                         var lastThree = inputValue.substring(inputValue.length - 3);
+                         var otherNumbers = inputValue.substring(0, inputValue.length - 3);
+                         if (otherNumbers != '')
+                             lastThree = ',' + lastThree;
+                         inputValue = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                         if (afterDecimal == undefined || afterDecimal == '00') {
+                           //  afterDecimal = '00';
+                             return inputValue
+                         }
+                         else {
+                             return inputValue + "." + afterDecimal;
+                         }
+
+                     }
+                     else
+                         return "";
+                 };
+
+                 $scope.addSpace = function (text) {
+                     var txt;
+                     if (text != undefined) {
+                         txt = text.replace(/[\r\n]/g, " ");
+                     }
+                     return txt;
+                 };
+             }]);
+
+             myAppABFL.directive('numbersOnly', function () {
+                 return {
+                     require: 'ngModel',
+                     link: function (scope, element, attrs, modelCtrl) {
+                         modelCtrl.$parsers.push(function (inputValue) {
+                             if (inputValue == undefined) return ''
+                             var transformedInput = inputValue.replace(/[^0-9]/g, '');
+                             if (transformedInput != inputValue) {
+                                 modelCtrl.$setViewValue(transformedInput);
+                                 modelCtrl.$render();
+                             }
+
+                             return transformedInput;
+                         });
+                     }
+                 };
+             });
+
+        </script>
+
+           
+        <link href="/_layouts/15/SharePointUI/CSS/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" /><link href="/_layouts/15/SharePointUI/CSS/CalendarControl.css" rel="stylesheet" type="text/css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSS/bootstrap.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSS/styles.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSSNew/newstyles.css?rev=10-15-2015" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSSNew/mediaqueries.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSS/jquery-ui.css" /><link rel="stylesheet" href="/_layouts/15/SharePointUI/CSSNew/jquery.bxslider.css" /><meta http-equiv="Refresh" content="1200;url=/pages/secured/LogOut.aspx?sessionTimeOut" /></head>
+    <body>
+
+           <div data-ng-app="myABFLApp"  data-ng-controller="MasterPageCtrl" >
+        <div id="imgPrefetch" style="display:none">
+<img src="/_layouts/15/images/ImagesNew/favicon.ico?rev=23" />
+</div>
+
+        <noscript><div class='noindex'>You may be trying to access this site from a secured browser on the server. Please enable scripts and reload this page.</div></noscript>
+        
+        <form method="post" action="AmortizationSchedule.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="_wpcmWpid" id="_wpcmWpid" value="" />
+<input type="hidden" name="wpcmVal" id="wpcmVal" value="" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="0xDF1FAA87849A1D874C932AD9C9C41688F6F022BB20B493F95085B70E29885153CDC205EFBB309FC014023C399A22D0C30925D921B075B320F6F758688164E769,31 Mar 2016 05:42:44 -0000" />
+<input type="hidden" name="__ABFLRequestDigest" id="__ABFLRequestDigest" value="ng0MSQl3OLOjoc4vmn+VzEXXQhdTVjXBRrKkjsr4dr04s9nlwYs16Knn1CQAcura	3/31/2016 11:10:51 AM" />
+<input type="hidden" name="URLReferrer" id="URLReferrer" value="http://hfcsecuat.abfsg.com/pages/secured/Statement.aspx" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_ExitingDesignMode" id="MSOSPWebPartManager_ExitingDesignMode" value="false" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="MSOSPWebPartManager_EndWebPartEditing" id="MSOSPWebPartManager_EndWebPartEditing" value="false" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPBSpWU0tleTpkMjc5ZTgzMi1hYmMwLTQ2MTEtOTM4Mi05MDVmNWU0MzEzNGVkbBsjg3APmUdh46RCzlaeKgDROX2K2LisXUkehSwafks=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=torhnJgXVdGfO9zHYmeC9vYZu9jdJgEjlZaWC0oZF3BQc__Ge29ahUjIuC4Pe_6PHPZycZOKPOjAoMC8erJSy8hjXMvf-eR5W7ECFWFOhek1&amp;t=635145251460000000" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var MSOWebPartPageFormName = 'aspnetForm';
+var g_presenceEnabled = true;
+var g_wsaEnabled = false;
+var g_wsaQoSEnabled = false;
+var g_wsaQoSDataPoints = [];
+var g_wsaLCID = 1033;
+var g_wsaListTemplateId = 850;
+var g_wsaSiteTemplateId = 'BLANKINTERNET#0';
+var _fV4UI=true;var _spPageContextInfo = {webServerRelativeUrl: "\u002f", webAbsoluteUrl: "http:\u002f\u002fhfcsecuat.abfsg.com", siteAbsoluteUrl: "http:\u002f\u002fhfcsecuat.abfsg.com", serverRequestPath: "\u002fPages\u002fSecured\u002fAmortizationSchedule.aspx", layoutsUrl: "_layouts\u002f15", webTitle: "HFC", webTemplate: "53", tenantAppVersion: "0", webLogoUrl: "_layouts\u002f15\u002fimages\u002fsiteicon.png", webLanguage: 1033, currentLanguage: 1033, currentUICultureName: "en-US", currentCultureName: "en-US", clientServerTimeDelta: new Date("2016-03-31T05:42:44.9734071Z") - new Date(), siteClientTag: "1$$15.0.4569.1000", crossDomainPhotosEnabled:false, webUIVersion:15, webPermMasks:{High:16,Low:196673},pageListId:"{48b8c4c3-b7c9-4751-b38e-9f21754bac31}",pageItemId:787, pagePersonalizationScope:1, alertsEnabled:false, siteServerRelativeUrl: "\u002f", allowSilverlightPrompt:'True'};//]]>
+</script>
+<script type="text/javascript" src="/_layouts/15/init.js?rev=%2FWTxr8UesytJ8GB%2F5hOwZA%3D%3D"></script>
+<script type="text/javascript">
+//<![CDATA[
+var REQ_TYPE = 'Statements' ;var PAGE_IDLE_TIMEOUT = 20;var L_Menu_BaseUrl="";
+var L_Menu_LCID="1033";
+var L_Menu_SiteTheme="null";
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=bX298pcEaRIptl1HVHvfwGIb3VmttOqIsww3bOScvUFR8mm5kODbzL0MuYdEnPZH4D0gimy5js_aA4mPPU6czfj8tMEyHgNisVaWj2Zrk0y3aEMr38aWrDJi8uRNqzu4kxtSzQeRh_ZBhY6xSwj_UDsoO3S-RQqlf3ISwT_Q1dcMESlEg-9auUR63od_XfdI0&amp;t=ca758f3" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=cZ1u2Of4GFQcEttwTogwUYySsVUGmfiNaljYAdR6abm9ReKRNjWoN2QipS8IttmqkoDLqw_W_8G0ECYqz2F35nVGjoSoYw86cybc97uwg8cWXeCsFFB1ojFBP51ERoO9pE48g8z7HaWjHqTPkTI0YnJUB6QjltFxRUg8aubCOAP2orD0rMsyMwvUO01bw2wo0&amp;t=ca758f3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+UpdateFormDigest('\u002f', 1440000);if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;};
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAASsmt+q2HULgEZsFeFNK1+Vct5o8uOI4OlX593ZIcNmfNhhqGJGQaZF5lFNkGOqlFLFHxecEfPcXJL1Vp8Zj14wogalg1L5UE1lAFvUe33Zu6SEOdMCtAcOMxW6lzxyiDo=" />
+</div>
+            
+            <!--main container-->
+            <div class="container-fluid">
+            	<script type="text/javascript"> var submitHook = function () { return false; }; theForm._spOldSubmit = theForm.submit; theForm.submit = function () { if (!submitHook()) { this._spOldSubmit(); } }; </script>
+            	<span id="DeltaSPWebPartManager">
+            	    
+            	</span>
+            	<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm', ['fctl00$WebPartAdderUpdatePanel',''], [], ['ctl00$WebPartAdder',''], 90, 'ctl00');
+//]]>
+</script>
+
+        
+	        <!--Top Header Bar--> 
+            <div class="page-header col-md-12 col-lg-12 col-sm-12">
+                
+                
+
+<div class="container">
+    <div class="right">
+        <ul id="ctl00_abgflNav_abgflNav_QuckLnk" class="masthead-nav"><li class="dropdown"><a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="quick-ico"></span>Quick Links<span class="caret"></span></a><ul id="QuckLnk" runat="server" role="menu" class="dropdown-menu"> <li><a target="_self" href=/Pages/Secured/AmortizationSchedule.aspx>Amortization Schedule</a> </li> <li><a target="_self" href=/Pages/Secured/Disbursement.aspx>Disbursement Request</a> </li> <li><a target="_self" href=/Pages/Secured/ApplyForLoan.aspx>Apply for New Loan</a> </li> <li><a target="_self" href=/Pages/Secured/CustomerApplicationStatus.aspx>Customer Application Status</a> </li></ul></li><li><a href="/pages/secured/emisimulator.aspx"><span class="EMI-ico"></span>EMI Calculator </a></li>            <li><a href="/pages/secured/ContactUs.aspx"><span class="contact-ico"></span>Contact Us </a></li>
+            <li><a href="/pages/secured/Logout.aspx"><span class="logout-ico"></span>Logout</a></li></ul>
+
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="user-info col-md-12 col-sm-12 dropdown">
+                <span style="color: #98022d" class="mobDispNon">Welcome,</span> <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle " href="#"><span class="userImg-thumb">
+                    <img id="ctl00_abgflNav_UserImg" src="/_layouts/15/SharePointUI/ImageHandler.ashx?Key=RORkAGk9O0f4WHBArtX7JmiAC6Xpz7t6WkwxaD21avw%3d" />
+                </span><span class="mobDispNon">
+                    hfc</span></a><a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="caret"></span> </a>
+                <ul role="menu" class="dropdown-menu">
+                    <li><a href="/pages/secured/AccountSettings.aspx">My Profile</a></li>
+                    <li><a href="/pages/secured/PhotoUpload.aspx">Profile Picture</a></li>
+                </ul>
+                <br />
+                <span class="loginTm">
+                    Last Login: 31/3/2016  10:44:53 AM</span>
+            </div>
+        </div>
+    </div>
+    <div id="ctl00_abgflNav_navigationLogoId" class="col-md-4 col-lg-4 col-sm-3 col-xs-6 logo-img"><span class="col-xs-12 img-center"><a href="/Pages/Secured/Dashboard.aspx"><img src="/SiteCollectionImages/abfl_new_logo.jpg" /></a></span></div>
+</div>
+<!--<span class="mobQuicklinks"></span>-->
+
+<div class="col-md-12 col-sm-12 navigationMOb">
+    <!--Top nav Bar-->
+    <nav role="navigation" class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle collapsed" type="button" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div id="bs-example-navbar-collapse-1" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                
+                <ul id="ctl00_abgflNav_QuickLinks2_QuckLnkMobile" class="nav navbar-nav"><li class="active"><i class="overviewIco"></i><a href="/pages/secured/DashBoard.aspx">Overview</a></li><li><i class="summaryIco"></i><a href="/pages/secured/AccountsSummary.aspx">Account Summary</a></li><li><i class="requestIco"></i><a href="/pages/secured/ServiceRequests.aspx">Service Requests</a></li><li><i class="statementIco"></i><a href="/pages/secured/Statement.aspx">View Statements</a></li><li class="dropdown dispNon"><a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">Quick Links<span class="caret"></span></a><ul class="dropdown-menu" role="menu"> <li class="dispNon"><a target="_self" href=/Pages/Secured/AmortizationSchedule.aspx>Amortization Schedule</a> </li> <li class="dispNon"><a target="_self" href=/Pages/Secured/Disbursement.aspx>Disbursement Request</a> </li> <li class="dispNon"><a target="_self" href=/Pages/Secured/ApplyForLoan.aspx>Apply for New Loan</a> </li> <li class="dispNon"><a target="_self" href=/Pages/Secured/CustomerApplicationStatus.aspx>Customer Application Status</a> </li></ul></li><li class="quickLinksMob" style="display:none" ><a href="/pages/secured/emisimulator.aspx"><span class="EMI-ico"></span>EMI Calculator </a></li>
+ <li class="dispNon"><a href="/pages/secured/ContactUs.aspx">Contact Us </a></li>
+ <li class="dispNon"><a href="/pages/secured/Logout.aspx">Logout</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+            
+            </div>
+                </div>
+            
+            
+            <div id="s4-ribbonrow" style="display:none;">
+                <div id="globalNavBox" class="noindex">                  
+                    <div id="DeltaWebPartAdderUpdatePanelContainer" class="ms-core-webpartadder">
+	
+                        <div id="WebPartAdderUpdatePanelContainer">
+                            <div id="ctl00_WebPartAdderUpdatePanel">
+		
+									<span id="ctl00_WebPartAdder"></span>
+								
+	</div>
+                        </div>
+                    
+</div>
+                </div>
+            </div>
+            <div class="container">
+                       <div id="ctl00_Breadcrumb_breadCrumbId" class="breadcrumbs col-lg-8 col-md-8 col-sm-12 col-xs-12"><a href=/pages/secured/Statement.aspx>Statements</a> &gt; <span>Amortization Schedule</span></div>
+
+                           
+       
+
+                         
+             
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 mainContent">
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+                        
+                            <div id="DeltaPlaceHolderMain">
+	
+                            <a id="mainContent" name="mainContent" tabindex="-1"></a>
+                            
+    <div class="topLeftContent">
+        <div class="ms-webpart-zone ms-fullWidth">
+		<div id="MSOZoneCell_WebPartctl00_SPWebPartManager1_g_e46d2258_c977_41fd_89b4_2d9754b0d387" class="s4-wpcell-plain ms-webpartzone-cell ms-webpart-cell-vertical ms-fullWidth ">
+			<div class="ms-webpart-chrome ms-webpart-chrome-vertical ms-webpart-chrome-fullWidth ">
+				<div WebPartID="e46d2258-c977-41fd-89b4-2d9754b0d387" HasPers="false" id="WebPartctl00_SPWebPartManager1_g_e46d2258_c977_41fd_89b4_2d9754b0d387" width="100%" class="ms-WPBody noindex " allowDelete="false" allowExport="false" style="" ><div id="ctl00_SPWebPartManager1_g_e46d2258_c977_41fd_89b4_2d9754b0d387">
+					
+
+<link href="/_layouts/15/SharePointUI/CSS/AmortizationSchedule.css?rev=09102015" rel="stylesheet" />
+
+<script src="/_layouts/15/SharePointUI/JS/AmortizationSchedule.js?rev=09102015"></script>
+
+<div id="leftMainCol" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 amortizationMAin" data-ng-controller="AmortizationCtrl">
+    <h1 class="pageTitle col-lg-9 col-md-9 col-sm-9">Amortization Schedule</h1>
+
+    
+    <div class="Tax-loan-account col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row account-number">
+            <label for="ItloanAmount">Loan Account #:</label>
+            <div class="col-sm-9 col-md-9 col-lg-7">
+                <select class="form-control response" id="ItloanAmount_dropdown" name="ItloanAmount" data-ng-model="selectedloanAccount"
+                    data-ng-options="item.LOAN_PRODUCT_NUMBER for item in loanInfoData.rows" data-ng-change="getLoanDetails()">
+                </select>
+            </div>
+        </div>
+        <div class="loanDetails">
+            <div class="panel-group" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="panel-minus" aria-hidden="true"></span>Loan Details </a>
+                            
+                        </h4>
+                    </div>
+
+                    <div class="que_comment col-xs-12 col-sm-5 col-lg-5 col-md-5 que_img usernameDesc" id="user_desc_for_loan" style="float: right">
+                        <ul class="list_style_content">
+                            <li>Loan Information</li>
+                        </ul>
+                    </div>
+
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Customer Id:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div4">
+                                        
+                                        <span class="val-Lbl" data-ng-bind='LoanDetails.CUSTOMER_NO'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Account No:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div3">
+                                        
+                                        <span class="val-Lbl" data-ng-bind='LoanDetails.LOAN_PRODUCT_NUMBER'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Product:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div2">
+                                         <span class="val-Lbl" data-ng-bind='LoanDetails.PRODUCT'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Primary Borrower:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div11">
+                                         <span class="val-Lbl" data-ng-bind='borrowerDetails.BORROWER_NAME'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Tenure End Date:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div12">
+                                        <span class="val-Lbl" data-ng-bind='repaymentDetails.EMI_END_DATE'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Status:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div13">
+                                        <span class="val-Lbl" data-ng-bind='LoanDetails.ACCOUNT_STATUS'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Sanctioned Limit:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div14">
+                                        <span class="rupeeNormalSymbol"></span> <span class="val-Lbl" data-ng-bind="formatRuppe(LoanDetails.SANCTIONED_AMOUNT)"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Principle Outstanding:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div15">
+                                        <span class="rupeeNormalSymbol"> </span><span class="val-Lbl" data-ng-bind="formatRuppe(LoanDetails.LOAN_OUTSTANDING)"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 div-pad">
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Tenure</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div6">
+                                       <span class="val-Lbl" data-ng-bind="LoanDetails.TOTAL_TENOR"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">EMI</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div19">
+                                        <span class="rupeeNormalSymbol"> </span><span class="val-Lbl" data-ng-bind="formatRuppe(LoanDetails.EMI_AMOUNT)"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Amount Due:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div16">
+                                         <span class="rupeeNormalSymbol"></span><span class="val-Lbl" data-ng-bind="formatRuppe(LoanDetails.AMOUNT_DUE)"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Total Outstanding:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div17">
+                                         <span class="rupeeNormalSymbol"></span><span class="val-Lbl" data-ng-bind="formatRuppe(LoanDetails.TOTAL_OUTSTANDING)"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Amount Available For Disbursement:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div18">
+                                        <span class="rupeeNormalSymbol"></span> <span class="val-Lbl" data-ng-bind="formatRuppe(LoanDetails.AMT_AVAILABLE_FOR_DISBURSMENT)"></span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Product Category:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div21">
+                                         <span class="val-Lbl" data-ng-bind='propertyDetails.PropertySub_Type'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Primary Account Holder:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div22">
+                                         <span class="val-Lbl" data-ng-bind='borrowerDetails.BORROWER_NAME'></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                                    <label class="col-md-5 col-sm-5 col-xs-5 body-padding" for="nextDue">Joint Holder Names:</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-7 body-padding" id="Div23">
+                                         <span class="val-Lbl" data-ng-bind='borrowerDetails.CO_BORROWER_NAME'></span>
+                                    </div>
+                                </div>
+                                
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-ng-show="NoData">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="links" style="float: right">
+                
+                <a id="ctl00_SPWebPartManager1_g_e46d2258_c977_41fd_89b4_2d9754b0d387_ctl00_Button1" aria-expanded="false" role="button" data-ng-click="setValue()" href="javascript:__doPostBack(&#39;ctl00$SPWebPartManager1$g_e46d2258_c977_41fd_89b4_2d9754b0d387$ctl00$Button1&#39;,&#39;&#39;)"><span class="emailSymbol"></span>Email</a>
+                <a href="javascript:void(0)" id="disabledDownload" class="disabledDownload" style="display: none" title="To enable download please contact administrator"><span class="downloadSymbol"></span>Download</a>
+                <a id="ctl00_SPWebPartManager1_g_e46d2258_c977_41fd_89b4_2d9754b0d387_ctl00_Button2" aria-expanded="false" role="button" data-ng-click="setValue()" href="javascript:__doPostBack(&#39;ctl00$SPWebPartManager1$g_e46d2258_c977_41fd_89b4_2d9754b0d387$ctl00$Button2&#39;,&#39;&#39;)"><span class="downloadSymbol"></span>Download</a>
+            </div>
+
+            <h2 style="float: left">Amort Schedule Details</h2>
+        </div>
+        <div class="Main-acc-statement">
+            <div class="row account_statement">
+
+                <div class="table-responsive" data-ng-show="tablediv">
+
+                    <table data-ng-table="tableParams" class="table table-striped bordering-top">
+                        <thead>
+                            <tr>
+                                <th>Installment Date</th>
+                                <th>Opening</th>
+                                <th>Installment Amount<span class="rupeeSymbol"></span></th>
+                                <th>Principal Amount <span class="rupeeSymbol"></span></th>
+                                <th>Interest Amount <span class="rupeeSymbol"></span></th>
+                                <th>Closing Balance <span class="rupeeSymbol"></span></th>
+                                <th>EMI Type</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody class="table-striped">
+                            <tr data-ng-repeat="AmortResult in tbldata1">
+                                <td><span data-ng-bind='AmortResult.INSTALLMENT_DUE_DATE'></span></td>
+                                <td><span data-ng-bind="formatRuppe(AmortResult.OPENING_BALANCE)"></span></td>
+                                <td><span data-ng-bind="formatRuppe(AmortResult.INSTALLMENT)"></span></td>
+                                <td><span data-ng-bind="formatRuppe(AmortResult.PRINCIPLE_AMOUNT)"></span></td>
+                                <td><span data-ng-bind="formatRuppe(AmortResult.INTEREST_AMOUNT)"></span></td>
+                                <td><span data-ng-bind="formatRuppe(AmortResult.CLOSING_BALANCE)"></span></td>
+                                <td><span data-ng-bind="AmortResult.EMI_TYPE"></span></td>
+
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="table-responsive loan-trans-det" data-ng-hide="tablediv">
+                    <span style="color: red; display: block; margin: 0px auto; text-align: center; padding-top: 10px; padding-bottom: 10px">No data found!</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="mar-tp10 DisclaimerSection bottomMain col-lg-12 col-md-12 col-sm-12 col-xs-12" data-ng-show="loaderDiv" style="text-align: center">
+        <span class="loaderImage">
+            <img src="/_layouts/15/images/ABFL/Loader.gif" id="ImgLoad" /></span>
+    </div>
+
+  
+
+    <input name="ctl00$SPWebPartManager1$g_e46d2258_c977_41fd_89b4_2d9754b0d387$ctl00$ddlAccountNumber" type="hidden" id="ctl00_SPWebPartManager1_g_e46d2258_c977_41fd_89b4_2d9754b0d387_ctl00_ddlAccountNumber" />
+    
+    
+</div>
+
+				</div><div class="ms-clear"></div></div>
+			</div>
+		</div>
+	</div>
+    </div>
+<div style='display:none' id='hidZone'><menu class="ms-hide">
+		<ie:menuitem id="MSOMenu_Help" iconsrc="/_layouts/15/images/HelpIcon.gif" onmenuclick="MSOWebPartPage_SetNewWindowLocation(MenuWebPart.getAttribute('helpLink'), MenuWebPart.getAttribute('helpMode'))" text="Help" type="option" style="display:none">
+
+		</ie:menuitem>
+	</menu></div>
+                        
+</div>
+                          </div>
+                         </div>
+                     </div>
+                    				    
+              
+                       
+           
+            <div style="display:none">
+            			
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+            </div>
+
+            
+            </div>
+            <footer class="col-md-12 col-sm-12 col-xs-12 footer"> 
+              <div id="ctl00_FOOTER_abflFooter" class="container-fluid footer-sec"><div class="col-md-6 col-lg-6 col-sm-6 col-xs-7 center">
+        <address>
+        Phone: +91 84259 55555  |  Email: abhfl.customerservice@adityabirla.com
+        </address>
+        <p class="copyright">© Aditya Birla Housing Finance Ltd.  2015</p>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-6 col-xs-5">
+        <ul class="footerLinks">
+		<li><a href="http://hfcsecuat.abfsg.com/Documents/HFC%20Connect%20TnCs.pdf" target="_blank">Terms and Conditions</a></li>
+<li><a href="http://hfcsecuat.abfsg.com/Documents/Legal%20Information%20for%20HFC%20customer%20portal.pdf" target="_blank">Legal</a></li>
+          <li><a href="http://adityabirlahomeloans.com/Pages/Individual/Our-Solutions/HomeLoan.aspx" target="_blank">Our Solutions </a></li>
+          <li><a href="http://adityabirlahomeloans.com/Pages/Home.aspx" target="_blank">Branch Locator </a></li>
+          <li><a href="mailto:abhfl.customerservice@adityabirla.com">Feedback</a></li>          
+        </ul>
+        <ul class="networking">
+          <li class="facebook"><a target="_blank" href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fsharer%2Fsharer.php%3Fs%3D100%26p%255Burl%255D%3Dhttp%253A%252F%252Fadityabirlafinance.com%252FPages%252FHome.aspx%26p%255Bimages%255D%255B0%255D%3Dhttp%253A%252F%252Fadityabirlafinance.com%252FSiteCollectionImages%252FAditya_Birla_Finance.jpg%26ret%3Dlogin&display=popup"></a></li>
+          <li class="tweet"><a target="_blank" href="https://twitter.com/intent/tweet?text=Aditya%20Birla%20Finance%20-%20Our%20Business%20is%20to%20Finance%20Yours&url=http%3A%2F%2Fadityabirlafinance.com%2FPages%2FHome.aspx"></a></li>
+          <li class="linked"><a target="_blank" href="https://www.linkedin.com/shareArticle?title=Aditya+Birla+Finance+-+Our+Business+is+to+Finance+Yours&mini=true&url=http%3A%2F%2Fadityabirlafinance%2Ecom%2FPages%2FHome%2Easpx"></a></li>
+        </ul>
+      </div>
+    </div></div>
+
+     
+	</footer>
+    
+        
+<script type="text/javascript">RegisterSod("initstrings.js", "\u002f_layouts\u002f15\u002f1033\u002finitstrings.js?rev=4Yrxyggg5knao3D48Ii\u00252FWA\u00253D\u00253D");</script>
+<script type="text/javascript">
+//<![CDATA[
+var _spFormDigestRefreshInterval = 1440000;var _fV4UI = true;//]]>
+</script>
+<script type="text/javascript">RegisterSod("browserScript", "\u002f_layouts\u002f15\u002fie55up.js?rev=0R4dbpInVlmjoVSw2Gglmw\u00253D\u00253D");RegisterSodDep("browserScript", "strings.js");</script>
+<script type="text/javascript">
+//<![CDATA[
+var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';//]]>
+</script>
+<script type="text/javascript">RegisterSod("WPAdderClass", "\u002f_layouts\u002f15\u002fwpadder.js?rev=ApLnd\u00252BqIPjLXRfr1t\u00252BCxyQ\u00253D\u00253D");</script>
+<script type="text/javascript">
+//<![CDATA[
+var g_clientIdDeltaPlaceHolderMain = "DeltaPlaceHolderMain";
+var g_clientIdDeltaPlaceHolderUtilityContent = "DeltaPlaceHolderUtilityContent";
+//]]>
+</script>
+</form>
+                       </div>
+        <span id="DeltaPlaceHolderUtilityContent">
+            
+        </span>
+        <script type="text/javascript">// <![CDATA[ 
+
+
+            var g_Workspace = "s4-workspace";
+        // ]]>
+</script>
+
+               <script type="text/javascript">
+                   $(document).ready(function () {
+                       function add() {
+                           if ($(this).val() === '') {
+                               $(this).val($(this).attr('placeholder')).addClass('placeholder');
+                           }
+                       }
+
+                       function remove() {
+                           if ($(this).val() === $(this).attr('placeholder')) {
+                               $(this).val('').removeClass('placeholder');
+                           }
+                       }
+
+                       // Create a dummy element for feature detection
+                       if (!('placeholder' in $('<input>')[0])) {
+
+                           // Select the elements that have a placeholder attribute
+                           $('input[placeholder], textarea[placeholder]').blur(add).focus(remove).each(add);
+
+                           // Remove the placeholder text before the form is submitted
+                           $('form').submit(function () {
+                               $(this).find('input[placeholder], textarea[placeholder]').each(remove);
+                           });
+                       }
+                   });
+
+		</script>
+
+
+    </body>
+</html>

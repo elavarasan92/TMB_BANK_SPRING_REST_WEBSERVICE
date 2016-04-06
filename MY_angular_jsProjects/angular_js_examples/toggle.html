@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="personCtrl">
+
+
+<a href="#" ng-hide="edit" ng-model="edit" ng-click="edit=!edit">Edit</a>
+<a href="#" ng-hide="!edit" ng-model="cancel" ng-click="edit=!edit">cancel</a>
+           
+			
+			
+<!--<a ng-href="#"  ng-show="myVar1" ng-click="toggle()">Edit</a>-->
+<a ng-href="#"  ng-show="myVar" ng-click="toggle()"  >Cancel</a>
+<p ng-show="myVar">
+First Name: <input type=text ng-model="firstName"><br>
+Last Name: <input type=text ng-model="lastName"><br><br>
+Full Name: {{firstName + " " + lastName}}
+</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVar = false;
+	 $scope.myVar1 = true;
+    $scope.toggle = function() {
+        $scope.myVar = !$scope.myVar;
+		$scope.myVar1 = !$scope.myVar1;
+    };
+	 
+});
+</script> 
+
+<p>Click the button to show/hide the user information.</p>
+
+</body>
+</html>

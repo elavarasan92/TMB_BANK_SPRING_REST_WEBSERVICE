@@ -273,6 +273,12 @@ public class TMBDaoImpl implements TMBDao {
          	   if(rs>0)
          	   {
          		  result = true;
+         		 System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%result result: " + result);
+         	   }
+         	   else
+         	   {
+           		 System.out.println("%%%%%%%%%%%else bolock%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%result result: " + result);
+
          	   }
          	   
          	   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rows affected: " + rs);
@@ -291,6 +297,42 @@ public class TMBDaoImpl implements TMBDao {
         	
 
 		
+        }
+        
+        if(fundTransferInput.getTransactionType()==TransactionType.IMPS)
+        {
+        	try
+ 			{
+ 			
+ 	        String hql = "UPDATE AccountDetails set balance = :balance "  + 
+ 	                "WHERE accountNumber = :accountNumber";
+ 	       
+ 	   Query query = session.createQuery(hql);
+ 	   query.setParameter("balance", fundTransferInput.getAvailableAmount().subtract(fundTransferInput.getTransferAmount()));
+ 	   query.setParameter("accountNumber", fundTransferInput.getFromAccountNumber());
+ 	   int rs = query.executeUpdate();
+ 	   if(rs>0)
+ 	   {
+ 		  result = true;
+ 		 System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%result result: " + result);
+ 	   }
+ 	   else
+ 	   {
+   		 System.out.println("%%%%%%%%%%%else bolock%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%result result: " + result);
+
+ 	   }
+ 	   
+ 	   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Rows affected: " + rs);
+ 			}
+ 			catch(Exception e)
+ 			{
+ 				e.printStackTrace();
+ 			}
+ 			finally
+ 			{
+ 	        tx.commit();
+ 	        session.close();
+ 			}
         }
         return result;
 	}

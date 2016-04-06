@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example of Bootstrap 3 Accordion</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ 
+</head>
+<body>
+<h1>Toggle collapsible sections with AngularJS</h1>
+
+<div ng-app id="ng-app">
+ 
+    
+    <a href="#" ng-model="collapseme" ng-click="collapseme=!collapseme">Click here to <strong>HIDE</strong> description</a>
+
+    <div ng-hide="collapseme">I am description for the above title, which was collapsed by default</div>
+    
+</div>
+</body>
+</html>                                		                                		

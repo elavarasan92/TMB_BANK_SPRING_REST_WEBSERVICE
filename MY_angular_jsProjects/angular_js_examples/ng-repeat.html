@@ -1,0 +1,23 @@
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script>
+        var app = angular.module('app', []);
+        app.controller('ctrl', function ($scope) {
+            $scope.cols = 0;
+            $scope.arr = [];
+            $scope.makeArray = function () {
+               var values = [{name: 'Jimi', gender: 'male'},{name: 'Peter', gender: 'male'},{name: 'Bob', gender: 'male'},{name:'Elavarasan', gender:'male'},{name:'Indhu', gender:'female'}];
+				//alert(values);
+				$scope.arr = values;
+			   /*			   $scope.arr.length = 0;
+                for (var i = 0; i < parseInt($scope.cols) ; i++) {
+                    $scope.arr.push(i);
+                }*/
+            }
+        });
+    </script>
+    <div ng-app="app">
+        <div ng-controller="ctrl">
+            <input ng-model="cols" type="text" ng-change="makeArray()" />
+            <div ng-repeat="o in arr">{{o.name}}</div>
+        </div>
+    </div>

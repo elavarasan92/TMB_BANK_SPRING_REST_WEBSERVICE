@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="ngTableTutorial">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="https://rawgit.com/esvit/ng-table/master/dist/ng-table.min.js"></script>
+		<style>
+		.table thead th {
+  text-align: left;
+}
+</style>
+     <script>
+		angular.module('ngTableTutorial', ['ngTable'])
+        .controller('tableController', function ($scope, $filter, ngTableParams) {
+ 
+            $scope.users = [{"id":1,"gender":"Male","first_name":"Jack","last_name":"Hanson","email":"jhanson0@cnet.com","ip_address":"229.32.24.223"},
+{"id":2,"gender":"Female","first_name":"Catherine","last_name":"Stevens","email":"cstevens1@yandex.ru","ip_address":"50.250.24.165"},
+{"id":3,"gender":"Female","first_name":"Cynthia","last_name":"Lane","email":"clane2@meetup.com","ip_address":"96.187.31.132"},
+{"id":4,"gender":"Male","first_name":"Jack","last_name":"Lewis","email":"jlewis3@artisteer.com","ip_address":"30.159.216.175"},
+{"id":5,"gender":"Female","first_name":"Wanda","last_name":"Turner","email":"wturner4@microsoft.com","ip_address":"112.58.17.121"},
+{"id":6,"gender":"Female","first_name":"Judy","last_name":"Ross","email":"jross5@nydailynews.com","ip_address":"132.187.115.109"},
+{"id":7,"gender":"Male","first_name":"Shawn","last_name":"Alvarez","email":"salvarez6@bloglines.com","ip_address":"170.203.150.226"},
+{"id":8,"gender":"Male","first_name":"Fred","last_name":"Bell","email":"fbell7@berkeley.edu","ip_address":"51.157.165.125"},
+{"id":9,"gender":"Male","first_name":"Albert","last_name":"Ellis","email":"aellis8@cpanel.net","ip_address":"9.30.54.147"},
+{"id":10,"gender":"Female","first_name":"Judith","last_name":"Ross","email":"jross9@economist.com","ip_address":"34.161.179.243"},
+{"id":11,"gender":"Male","first_name":"Chris","last_name":"Hunt","email":"chunta@vinaora.com","ip_address":"240.125.141.50"},
+{"id":12,"gender":"Female","first_name":"Rose","last_name":"Ortiz","email":"rortizb@google.nl","ip_address":"76.233.168.246"},
+{"id":13,"gender":"Female","first_name":"Betty","last_name":"Hamilton","email":"bhamiltonc@irs.gov","ip_address":"237.38.247.213"},
+{"id":14,"gender":"Female","first_name":"Betty","last_name":"Matthews","email":"bmatthewsd@php.net","ip_address":"83.197.85.38"},
+{"id":15,"gender":"Female","first_name":"Kelly","last_name":"Roberts","email":"krobertse@eventbrite.com","ip_address":"41.106.195.55"},
+{"id":16,"gender":"Female","first_name":"Sara","last_name":"Stephens","email":"sstephensf@instagram.com","ip_address":"175.84.199.198"},
+{"id":17,"gender":"Male","first_name":"Douglas","last_name":"Burke","email":"dburkeg@craigslist.org","ip_address":"243.142.124.238"},
+{"id":18,"gender":"Male","first_name":"Billy","last_name":"Coleman","email":"bcolemanh@amazonaws.com","ip_address":"85.7.89.99"},
+{"id":19,"gender":"Male","first_name":"Michael","last_name":"Berry","email":"mberryi@purevolume.com","ip_address":"94.2.88.64"},
+{"id":20,"gender":"Female","first_name":"Laura","last_name":"Fields","email":"lfieldsj@harvard.edu","ip_address":"215.227.148.165"}]
+            $scope.usersTable = new ngTableParams({
+                page: 1,
+                count: 10
+            }, {
+				counts: [],
+                total: $scope.users.length, 
+                getData: function ($defer, params) {
+                    $scope.data = $scope.users.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                    $defer.resolve($scope.data);
+                }
+            });
+            });
+       
+		</script>
+    </head>
+    <body>
+        <div ng-controller="tableController">
+    <table ng-table="usersTable" class="table">
+	
+	 <thead>
+                    <tr style="background-color:cornsilk">
+                        <th style="color:red">Instatllment Date</th>
+                        <th style="color:red">Opening</th>
+                        <th style="color:red">Instatllment Amount (&#8377;)</th>
+						<th style="color:red">Prinicipal Amount (&#8377;)</th>
+						<th style="color:red">Interset Amount (&#8377;)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in data">
+                        <td>{{user.id}}</td>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                        <td> {{user.ip_address}}</td>
+                    </tr>
+					</tbody>
+    
+    </table>
+        </div>
+		
+    </body>
+	
+</html>

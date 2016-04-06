@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <script>
+        angular.module("myapp", [])
+          .controller("MyController", function ($scope) {
+              $scope.register = {};
+              $scope.register.countryId = "1";
+
+              $scope.register.countries = [{
+                  id: "1",
+                  name: "India"
+              }, {
+                  id: "2",
+                  name: "USA"
+              }, {
+                  id: "3",
+                  name: "UK"
+              }, {
+                  id: "4",
+                  name: "Nepal"
+              }];
+          });
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="MyController">
+        <div>
+            Country Name :  <select ng-model="register.countryId" ng-options="country.id as country.name for country in register.countries"></select>
+        </div>
+        <div>
+            Country-Id : {{register.countryId}}
+        </div>
+    </div>
+</body>
+</html>
